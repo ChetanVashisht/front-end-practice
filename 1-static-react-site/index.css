@@ -1,0 +1,24 @@
+html, body {
+    margin: 0;
+    padding: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-right {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.nav-right > li {
+    padding: 10px;
+}
+
+.img {
+    width: 40px;
+}
