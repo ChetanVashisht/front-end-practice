@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+nav {
+    padding: 20px 50px;
+    height: 70px;
+    box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.hero {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-image {
+    align-self: center;
+    max-width: 500px;
+}
+
+.hero-title {
+    align-self: left;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 110%;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.hero-catchphrase {
+    max-width: 400px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 110%;
+    color: #222222;
+    margin-top: 0px;
+}
+
+.cards {
+    padding-left: 50px;
+}
+
+.card {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 13px;
+}
+
+.card-image {
+    height: 240px;
+}
+
+.card-review-light-text{
+    font-weight: 300;
+    color: #918E9B;
+}
+
+.card-section {
+    padding-top: 0px;
+    padding-bottom: 7px;
+    position: relative;
+}
+
+.card-special {
+    position: absolute;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    top: 6px;
+    left: 6px;
+    padding: 3px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10.24px;
+    line-height: 110%;
+    /* or 11px */
+
+    text-align: center;
+}
