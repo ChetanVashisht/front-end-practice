@@ -90,3 +90,7 @@ nav {
 
     text-align: center;
 }
+
+.cards-section {
+    display: flex;
+}
