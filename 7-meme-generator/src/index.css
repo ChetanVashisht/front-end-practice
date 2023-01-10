@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    height: 65px;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+}
+
+.navbar-right {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12;
+    line-height: 15px;
+    text-align: right;
+    align-self: center;
+    padding-right: 30px;
+
+    color: #FFFFFF;
+}
+
+.navbar-title {
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20.7482px;
+    line-height: 24px;
+    letter-spacing: -0.1em;
+
+    color: #FFFFFF;
+    margin-right: auto;
+}
+
+.navbar-icon {
+    padding-right: 10px;
+}
+
+.form-section {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.form-inputs {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.form-inputs > input {
+    width: 50%;
+    border: 1px solid #D5D4D8;
+    border-radius: 5px;
+    height: 35px;
+    margin: 20px 10px;
+    text-indent: 10px;
+}
+
+.form-inputs > :first-child {
+    margin-left: 0px;
+}
+
+.form-inputs > :last-child {
+    margin-right: auto;
+}
+
+.form-submit {
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    border-radius: 5px;
+    height: 40px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: -0.05em;
+    color: #FFFFFF;
+}
+
+.meme-image {
+    display: inline-block;
+    border-radius: 2px;
+    padding-top: 50px;
+    max-width: 100%;
+    max-height: 600px;
+}
