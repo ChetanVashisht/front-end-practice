@@ -1,5 +1,5 @@
 {
-  "name": "8-markdown-notes-app",
+  "name": "9-tenzies",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,12 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "nanoid": "3.1.28",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-mde": "11.5.0",
-    "react-split": "2.0.13",
-    "showdown": "1.9.1"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
