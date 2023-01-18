@@ -1,5 +1,5 @@
 cd "$1"
 
 rm public/*
-rm src/App*
+rm src/App.css
 rm src/assets/*
