@@ -1,4 +1,5 @@
-import React from "React"
+import React from "react"
+import states from "./Constants"
 
 export default function Question({ question, gameState, handleClick }) {
     const { options } = question
@@ -12,8 +13,7 @@ export default function Question({ question, gameState, handleClick }) {
             </button>
         )
     }
-
-    return (
+    const renderQuestion = (
         <div className="question">
             <h2>{question.question}</h2>
             <div className="options">
@@ -22,4 +22,11 @@ export default function Question({ question, gameState, handleClick }) {
             <hr />
         </div>
     )
+
+    return (
+        <div>
+            {gameState != states.SETTING_UP && renderQuestion}
+        </div>
+    )
+
 }

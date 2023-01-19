@@ -16,11 +16,12 @@ body {
 }
 
 .splash {
+    padding: 80px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 h1 {
@@ -47,6 +48,7 @@ h3 {
     font-weight: 500;
     font-size: 1.5rem;
     color: #F5F7FB;
+    margin: 30px;
 }
 
 h2 {

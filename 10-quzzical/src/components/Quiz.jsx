@@ -1,9 +1,9 @@
-import React from "React"
+import React from "react"
 import { useState } from "react"
-import allData from "../assets/data"
 import Question from "./Question"
 import states from "./Constants"
 import makeOptions from "./Options"
+import { useEffect } from "react"
 
 export default function Quiz() {
     /** Generated from https://opentdb.com/api.php?amount=5&category=10&encode=url3986 */
@@ -22,10 +22,29 @@ export default function Quiz() {
         options: makeOptions(question.wrongAnswers, question.rightAnswer)
     })
 
-    const [gameState, setGameData] = useState(states.IN_PROGRESS)
-    const [questions, setQuestions] = useState(allData.results.map(decode).map(addOptions))
+    const setUpData = function () {
+        if (gameState == states.SETTING_UP) {
+            fetch("https://opentdb.com/api.php?amount=5&encode=url3986")
+                .then(response => response.json())
+                .then(json => json.results.map(decode).map(addOptions))
+                .then(setQuestions)
+                .then(startQuiz)
+        }
+    }
 
-    const completeGame = () => setGameData(states.GAME_OVER)
+    const [gameState, setGameState] = useState(states.SETTING_UP)
+    const [questions, setQuestions] = useState([])
+    useEffect(setUpData, [gameState])
+
+    const completeGame = () => setGameState(states.GAME_OVER)
+    const newQuiz = () => setGameState(states.SETTING_UP)
+    const startQuiz = () => setGameState(states.IN_PROGRESS)
+
+    const createNewQuiz = () => {
+        setQuestions([])
+        newQuiz()
+    }
+
     const renderQuestion = function (question, index) {
         return (
             <Question
@@ -44,9 +63,12 @@ export default function Quiz() {
     }
     return (
         <main className="splash">
-            {questions.map(renderQuestion)}
+            <div className="questions">
+                {questions.map(renderQuestion)}
+            </div>
+            {gameState === states.SETTING_UP && <h1>Loading</h1>}
             {gameState === states.IN_PROGRESS && <button className="submit" onClick={completeGame}>Submit</button>}
-            {gameState === states.GAME_OVER && <button className="submit" onClick={completeGame}> New Game </button>}
+            {gameState === states.GAME_OVER && <button className="submit" onClick={createNewQuiz}> New Game </button>}
             {gameState === states.GAME_OVER && <p> You scored out {calculateScore(questions)} of {questions.length}</p>}
         </main>
     )
