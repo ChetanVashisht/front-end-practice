@@ -1,24 +1,36 @@
+svg {
+    height:90vh;
+    margin:1em auto; 
+    display: block;
+    stroke-width:1;
+    fill:lightblue;
+}
+
 body {
-    border: 0;
-    padding: 0;
-    margin: 0;
+    background: lightgrey;
 }
 
-.menu {
-    display: flex;
-    height: 50px;
-    background: #eee;
-    border: 0;
-    padding: 5px;
-    margin: 0;
-    align-items: center;
+circle {
+    animation-name: example;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    transform-origin: center;
+    stroke-width: 5;
+    stroke: black;
 }
 
-.menu-items {
-    flex: 1 1 50px;
-    flex-flow: row nowrap;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+@keyframes example {
+    0% {transform: rotate3d(0, 1, 0, 0)};
+    25% {transform: rotate3d(0, 1, 0, 90deg);}
+    50% {transform: rotate3d(0, 1, 0, 180deg);}
+    75% {transform: rotate3d(0, 1, 0, 270deg);}
+    100% {transform: rotate3d(0, 1, 0, 360deg);}
 }
-
+@keyframes example2 {
+    0% {transform: rotate3d(0, 1, 0, 0)};
+    25% {transform: rotate3d(0, 1, 0, 90deg);}
+    50% {transform: rotate3d(0, 1, 0, 180deg);}
+    75% {transform: rotate3d(0, 1, 0, 270deg);}
+    100% {transform: rotate3d(0, 1, 0, 360deg);}
+}
