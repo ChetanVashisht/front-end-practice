@@ -1,10 +1,10 @@
-import heroImg from "../assets/studio.jpeg"
+import heroImg from "../assets/result.jpeg"
 
 export default function () {
     return (
-        <div className="hero">
+        <section className="hero">
             <img className="hero-bg" src={heroImg} />
-            <div className="hero-heading centered"> Studio Maayin </div>
-        </div>
+            <h1 className="centered"> Studio Maayin </h1>
+        </section>
     )
 }

@@ -1,61 +1,125 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     background: #E3DEDE;
-
 }
 
 .hero {
     position: relative;
-    width: 100%;
     max-height: 1000px;
 }
 
 .hero-bg {
-    background-image: url("./src/assets/studio.jpeg");
     height: 100%;
     width: 100%;
     min-height: 400px;
+    border-radius: 30px;
 }
 
-.section-heading {
+section {
+    padding-top: 30px;
+    margin: auto 20px;
+}
+
+section > h2 {
     font-family: 'serif';
     font-style: normal;
-    font-size: xxx-large;
+    font-size: 4rem;
     color: white;
     text-align: center;
-    text-shadow: 2px 2px 5px black;
+    text-shadow: 2px 2px 2px black;
 }
 
-.centered {
+h1 {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4rem;
+    text-shadow: 3px 3px 2px slateblue;
 }
 
 
-.section {
-    padding-top: 30px;
-}
-
-.aboutus-heading {
-    font-family: 'Gangitem';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 60px;
-    line-height: 58px;
-
-    color: #000000;
-    text-align: center;
-}
-
-.aboutus-para {
+.horizontal-block {
     background-color: white;
-    margin: 20px;
-    padding: 20px 20px 60px 20px;
-
+    padding: 20px;
+    margin: 30px;
     font-family: 'Helvetica';
     font-style: normal;
     font-weight: 400;
-    font-size: 30;
+    font-size: 1rem;
+    border-radius: 20px;
+    box-shadow: 3px 2px 5px slategray;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    max-height: 300px;
+    max-width: 300px;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 3px 2px 5px slategray;
+}
+
+.card > img {
+    width: 200px;
+    align-self: center;
+}
+
+.card > p {
+    font-family: Helvetica;
+}
+
+
+.horizontal-block > q {
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.horizontal-block > q::before, q::after {
+    font-size: 4rem;
+    padding: 0;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    margin: auto 30px;
+    align-items: center;
+}
+
+.contact > a > img {
+    width: 30px;
+    align-self: center;
+    margin-bottom: 5px;
+}
+
+.contact > label {
+    font-family: Helvetica;
+    font-size: 0.7rem;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    height: 100px;
 }
