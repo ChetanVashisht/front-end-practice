@@ -1,0 +1,80 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    margin: 0;
+}
+
+.cell {
+    height: 50px;
+    width: 50px;
+    border: 1px solid blue;
+    margin: 3px;
+    border-radius: 8px;
+
+    background-origin: border-box;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hidden {
+    background-color: slategray;
+}
+
+.discovered {
+    background-color: slateblue;
+}
+
+.mine {
+    background-image: url("./assets/mine.svg");
+}
+
+.flagged {
+    background-image: url("./assets/flag.svg");
+}
+
+button {
+    border: 1px solid transparent;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: grab;
+    transition: border-color 0.25s;
+}
+
+.pic {
+    width: 50px;
+    margin-top: 20px;
+}
+
+.disabled {
+    cursor: not-allowed;
+}

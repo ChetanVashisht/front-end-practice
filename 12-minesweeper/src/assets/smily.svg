@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="39.561165"
+   height="39.561165"
+   id="svg2"
+   inkscape:version="0.92.0 r15299"
+   sodipodi:docname="Smiling_smiley_yellow_simple.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1825"
+     inkscape:window-height="1046"
+     id="namedview45"
+     showgrid="false"
+     inkscape:current-layer="svg2"
+     inkscape:zoom="20.803229"
+     inkscape:cx="20.068999"
+     inkscape:cy="19.780583"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs4">
+    <linearGradient
+       id="lg1">
+      <stop
+         offset="0"
+         style="stop-color:#fffcde;stop-opacity:1"
+         id="stop7" />
+      <stop
+         offset="0.64485979"
+         style="stop-color:#f6e76a;stop-opacity:1"
+         id="stop9" />
+      <stop
+         offset="1"
+         style="stop-color:#ffb738;stop-opacity:1"
+         id="stop11" />
+    </linearGradient>
+    <radialGradient
+       cx="29.288071"
+       cy="15.720984"
+       r="8.9020796"
+       fx="29.158466"
+       fy="15.755712"
+       id="rg1"
+       xlink:href="#lg1"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       cx="25.0527"
+       cy="39.5928"
+       r="15.7572"
+       fx="25.0527"
+       fy="39.5928"
+       id="rg2"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.25,0,0,1.25,-6.479446,-13.37211)">
+      <stop
+         offset="0"
+         style="stop-color:#777;stop-opacity:1"
+         id="stop15" />
+      <stop
+         offset="1"
+         style="stop-color:#000;stop-opacity:1"
+         id="stop17" />
+    </radialGradient>
+    <linearGradient
+       id="lg2">
+      <stop
+         offset="0"
+         style="stop-color:#000;stop-opacity:1"
+         id="stop20" />
+      <stop
+         offset="1"
+         style="stop-color:#000;stop-opacity:0"
+         id="stop22" />
+    </linearGradient>
+    <radialGradient
+       cx="24.714285"
+       cy="38.57143"
+       r="19.714285"
+       fx="24.714285"
+       fy="38.57143"
+       id="rg3"
+       xlink:href="#lg2"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.333333,0,25.71429)" />
+  </defs>
+  <metadata
+     id="metadata25">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>emoticon</rdf:li>
+            <rdf:li>emote</rdf:li>
+            <rdf:li>smiley</rdf:li>
+            <rdf:li>happy</rdf:li>
+            <rdf:li>:)</rdf:li>
+            <rdf:li>:-)</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/2.0/" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Jakub Steiner</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:source>http://jimmac.musichall.cz</dc:source>
+        <dc:title></dc:title>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/2.0/">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/Notice" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/Attribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <path
+     d="m 39.027831,19.780583 c 0,10.629964 -8.617287,19.24725 -19.247248,19.24725 -10.6299635,0 -19.24724964,-8.617286 -19.24724964,-19.24725 0,-10.6299615 8.61728614,-19.24724964 19.24724964,-19.24724964 10.629961,0 19.247248,8.61728814 19.247248,19.24724964 z"
+     style="color:#000000;overflow:visible;fill:#ffff00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.06666672;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path29"
+     inkscape:connector-curvature="0" />
+  <path
+     d="m 33.668176,20.748524 c -3.217564,5.572985 -6.979736,9.589375 -13.676954,9.589375 -6.506685,0 -11.2699055,-4.62901 -14.2426405,-9.777937 2.719374,3.259648 6.7017935,7.004066 13.9597975,7.004066 8.672218,0 10.188561,-3.100645 13.959797,-6.815504 z"
+     id="path35"
+     style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.06666672"
+     inkscape:connector-curvature="0" />
+  <path
+     d="m 27.009433,14.029881 c 0,2.666667 -1.2,4.8 -2.666667,4.8 -1.466666,0 -2.666666,-2.133333 -2.666666,-4.8 0,-2.666666 1.2,-4.7999995 2.666666,-4.7999995 1.466667,0 2.666667,2.1333335 2.666667,4.7999995 z"
+     style="opacity:0.36000001;fill:#ffffff;stroke-width:1.06666672"
+     id="path39"
+     inkscape:connector-curvature="0" />
+  <path
+     d="m 17.099722,13.363215 c 0,2.666666 -1.2,4.8 -2.666667,4.8 -1.466666,0 -2.666666,-2.133334 -2.666666,-4.8 0,-2.666667 1.2,-4.7999995 2.666666,-4.7999995 1.466667,0 2.666667,2.1333325 2.666667,4.7999995 z m 9.909711,0"
+     id="path41"
+     inkscape:connector-curvature="0"
+     style="fill:#000000;stroke-width:1.06666672" />
+  <path
+     d="m 27.009433,13.363215 c 0,2.666666 -1.2,4.8 -2.666667,4.8 -1.466666,0 -2.666666,-2.133334 -2.666666,-4.8 0,-2.666667 1.2,-4.7999995 2.666666,-4.7999995 1.466667,0 2.666667,2.1333325 2.666667,4.7999995 z"
+     id="path43"
+     inkscape:connector-curvature="0"
+     style="fill:#000000;stroke-width:1.06666672" />
+</svg>
