@@ -15,29 +15,48 @@ function App() {
     }
 
     const startNewGame = () => {
-        setMines(createMines(mineCount))
+        const mines = createMines(mineCount)
+        setField(newField(mines))
+        setMines(mines)
         setGameState(states.START)
-        setField(newField)
+        setLosingCell({})
     }
     const [size, setSize] = useState(10)
-    const [mineCount, setMineCount] = useState(3)
+    const [mineCount, setMineCount] = useState(10)
     const [mines, setMines] = useState(createMines(mineCount))
     const [gameState, setGameState] = useState(states.START)
+    const [losingCell, setLosingCell] = useState({})
 
     const createGrid = (size) => Array(size).fill(Array(size).fill({ isDiscovered: false, isMine: false, isFlagged: false }))
-    const enumCell = (rowNo) => (cell, index) => ({ ...cell, id: (rowNo * 10 + index) })
+    const enumCell = (rowNo) => (cell, index) => ({ ...cell, id: (rowNo * size + index) })
     const addIds = (row, rowNo) => (row.map(enumCell(rowNo)))
 
     const toggleRequiredCell = (id, prop) => c => c.id === id ? { ...c, [prop]: !c[prop] } : c
+    const setRequiredCell = (id, prop, value) => c => c.id === id ? { ...c, [prop]: value } : c
     const toggleRequiredCells = (ids, prop) => c => ids.includes(c.id) ? { ...c, [prop]: !c[prop] } : c
     const setRequiredCells = (ids, prop, value) => c => ids.includes(c.id) ? { ...c, [prop]: value } : c
 
-    const addMines = row => row.map(toggleRequiredCells(mines, "isMine"))
-    const newField = () => createGrid(10).map(addIds).map(addMines)
-    const [field, setField] = useState(newField)
+    const getCellId = (cell) => ({ row: Math.floor(cell.id / size), column: cell.id % size })
+    const getNeighbours = (cell) => {
+        const { row, column } = getCellId(cell)
+        const isValidCoordinate = c => (c >= 0 && c < size)
+        const validCell = c => (isValidCoordinate(c[0]) && isValidCoordinate(c[1]))
+        const cellIds = [-1, 0, 1].flatMap(i => [-1, 0, 1].map(j => ([row + i, column + j]))).filter(validCell)
+        return cellIds.map(c => field[c[0]][c[1]]).filter(c => c != cell)
+    }
+    const addMineCount = (cell) => getNeighbours(cell).map(c => c.isMine ? 1 : 0).reduce(add, 0)
+    const addMineCountToRow = (row) => row.map(cell => ({ ...cell, neighbouringMines: addMineCount(cell) }))
+
+    const addMines = (mines) => row => row.map(toggleRequiredCells(mines, "isMine"))
+    const newField = (mines) => createGrid(10).map(addIds).map(addMines(mines))
+    const [field, setField] = useState(newField(mines))
 
     const toggleCellInField = (cell, prop) => (field) => field.map(row => row.map(toggleRequiredCell(cell.id, prop)))
     const toggleDiscovered = (cell) => setField(toggleCellInField(cell, "isDiscovered"))
+
+    const setCellInField = (cell, prop, value) => (field) => field.map(row => row.map(setRequiredCell(cell.id, prop, value)))
+    const setDiscovered = cell => setField(setCellInField(cell, "isDiscovered", true))
+
     const toggleFlagged = (cell) => setField(toggleCellInField(cell, "isFlagged"))
 
     const revealMinesInRow = row => row.map(setRequiredCells(mines, "isDiscovered", true))
@@ -45,7 +64,7 @@ function App() {
 
     const gameLossHook = () => { setField(revealMines) }
     const gameStartHook = () => { setGameState(states.IN_PROGRESS) }
-    const gameWonHook = () => { }
+    const gameWonHook = () => {}
 
     const runGameStateHook = () => {
         switch (gameState) {
@@ -54,23 +73,47 @@ function App() {
     }
     useEffect(runGameStateHook, [gameState])
 
-    const setUpField = () => setField(newField)
+    const setUpField = () => setField(() => field.map(addMineCountToRow))
     useEffect(setUpField, [mines])
 
     const gameIsWon = (clickedCell) => {
         const minesDetectedFn = (row) => row.map(cell => cell.isMine && cell.isFlagged)
-            .filter(identity).map(x => 1).reduce(add, 0)
+            .filter(identity).map(_ => 1).reduce(add, 0)
         const count = field.map(minesDetectedFn).reduce(add, 0)
 
         const last = clickedCell.isMine ? 1 : 0
         return count + last == mineCount
     }
 
-    const processCellClick = (cell) => () => {
-        toggleDiscovered(cell)
-        if (gameState == states.START) setGameState(states.IN_PROGRESS)
-        if (cell.isMine) setGameState(states.LOST)
+    const reduceField = (field, cell) => {
+        console.log(cell)
+        if (cell.isDiscovered) {
+            return field
+        } else if (cell.neighbouringMines > 0) {
+            return setCellInField(cell, "isDiscovered", true)(field)
+        } else {
+            return getNeighbours(cell).reduce((f, c) => {
+                const newField = setCellInField(c, "isDiscovered", true)(f)
+                return reduceField(newField, c)
+            }, field)
+        }
     }
+
+    const processCellClick = (cell, field) => () => {
+        let updatedField = setCellInField(cell, "isDiscovered", true)(field)
+        if (gameState == states.START) setGameState(states.IN_PROGRESS)
+        if (cell.isMine) {
+            setGameState(states.LOST)
+            setLosingCell(cell)
+        } else {
+            const { neighbouringMines } = cell
+            if (neighbouringMines == 0) {
+                updatedField = reduceField(updatedField, cell)
+            }
+        }
+        setField(updatedField)
+    }
+
 
     const processFlagging = (cell) => (e) => {
         e.preventDefault()
@@ -81,23 +124,27 @@ function App() {
     const getClassNames = (cell) => {
         return `
             cell
+            color-${cell.neighbouringMines}
             ${cell.isDiscovered ? 'discovered' : 'hidden'}
             ${cell.isFlagged ? 'flagged' : ''}
             ${cell.isMine && !cell.isFlagged && cell.isDiscovered ? 'mine' : ''}
+            ${losingCell.id === cell.id ? 'red' : ''}
         `
     }
 
+    const disableRightClick = (e) => e.preventDefault()
 
     const renderCell = (cell) => (
         <button
             className={getClassNames(cell)}
             key={cell.id}
-            onClick={processCellClick(cell)}
-            onContextMenu={processFlagging(cell)} >
+            onClick={processCellClick(cell, field)}
+            disabled={!gameState.clickAllowed}
+            onContextMenu={processFlagging(cell)} >{cell.neighbouringMines}
         </button>)
     const renderRow = (row, i) => (<div className="row" key={i}> {row.map(renderCell)}</div>)
     return (
-        <main>
+        <main onContextMenu={disableRightClick}>
             {field.map(renderRow)}
             {[states.START, states.IN_PROGRESS].includes(gameState) && <img src="./src/assets/sad.svg" disabled={true} className="pic disabled" />}
             {gameState === states.WON && <img src="./src/assets/smily.svg" onClick={startNewGame} className="pic" />}
@@ -105,6 +152,6 @@ function App() {
             {gameState === states.LOST && <img src="./src/assets/lost.svg" onClick={startNewGame} className="pic" />}
         </main>
     )
-}
+    }
 
 export default App
