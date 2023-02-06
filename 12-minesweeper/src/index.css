@@ -22,8 +22,8 @@ main {
 }
 
 .cell {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 8px;
     color: transparent;
     margin:3px;
@@ -71,7 +71,9 @@ main {
 button {
     background-color: #1a1a1a;
     cursor: grab;
-    transition: border-color 0.25s;
+    transition: border-color 0.5s;
+    transition: background 0.3s linear 0.10s;
+    transition: background-image 0.3s fade-in;
     font-size: large;
 }
 

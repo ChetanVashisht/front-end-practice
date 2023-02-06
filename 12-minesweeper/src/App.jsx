@@ -37,15 +37,15 @@ function App() {
     const setRequiredCells = (ids, prop, value) => c => ids.includes(c.id) ? { ...c, [prop]: value } : c
 
     const getCellId = (cell) => ({ row: Math.floor(cell.id / size), column: cell.id % size })
-    const getNeighbours = (cell) => {
+    const getNeighbours = (cell, field) => {
         const { row, column } = getCellId(cell)
         const isValidCoordinate = c => (c >= 0 && c < size)
         const validCell = c => (isValidCoordinate(c[0]) && isValidCoordinate(c[1]))
         const cellIds = [-1, 0, 1].flatMap(i => [-1, 0, 1].map(j => ([row + i, column + j]))).filter(validCell)
         return cellIds.map(c => field[c[0]][c[1]]).filter(c => c != cell)
     }
-    const addMineCount = (cell) => getNeighbours(cell).map(c => c.isMine ? 1 : 0).reduce(add, 0)
-    const addMineCountToRow = (row) => row.map(cell => ({ ...cell, neighbouringMines: addMineCount(cell) }))
+    const addMineCount = (cell) => getNeighbours(cell, field).map(c => c.isMine ? 1 : 0).reduce(add, 0)
+    const addMineCountToRow = (row) => row.map(cell => ({ ...cell, neighbouringMines: cell.isMine ? 0 :addMineCount(cell) }))
 
     const addMines = (mines) => row => row.map(toggleRequiredCells(mines, "isMine"))
     const newField = (mines) => createGrid(10).map(addIds).map(addMines(mines))
@@ -82,17 +82,17 @@ function App() {
         const count = field.map(minesDetectedFn).reduce(add, 0)
 
         const last = clickedCell.isMine ? 1 : 0
-        return count + last == mineCount
+        const flagsPlaced = field.flatMap(row => row.map(cell => cell.isFlagged ? 1 : 0)).reduce(add, 0)
+        return (count + last == mineCount) && (flagsPlaced + (clickedCell.isFlagged ? -1 : 1) == mineCount )
     }
 
     const reduceField = (field, cell) => {
-        console.log(cell)
-        if (cell.isDiscovered) {
+        if (cell.isDiscovered || cell.isFlagged) {
             return field
         } else if (cell.neighbouringMines > 0) {
             return setCellInField(cell, "isDiscovered", true)(field)
-        } else {
-            return getNeighbours(cell).reduce((f, c) => {
+        } else if (cell.neighbouringMines == 0){
+            return getNeighbours(cell, field).reduce((f, c) => {
                 const newField = setCellInField(c, "isDiscovered", true)(f)
                 return reduceField(newField, c)
             }, field)
@@ -100,18 +100,20 @@ function App() {
     }
 
     const processCellClick = (cell, field) => () => {
-        let updatedField = setCellInField(cell, "isDiscovered", true)(field)
-        if (gameState == states.START) setGameState(states.IN_PROGRESS)
-        if (cell.isMine) {
-            setGameState(states.LOST)
-            setLosingCell(cell)
-        } else {
-            const { neighbouringMines } = cell
-            if (neighbouringMines == 0) {
-                updatedField = reduceField(updatedField, cell)
+        if (!cell.isFlagged) {
+            let updatedField = setCellInField(cell, "isDiscovered", true)(field)
+            if (gameState == states.START) setGameState(states.IN_PROGRESS)
+            if (cell.isMine) {
+                setGameState(states.LOST)
+                setLosingCell(cell)
+            } else {
+                const { neighbouringMines } = cell
+                if (neighbouringMines == 0) {
+                    updatedField = reduceField(updatedField, cell)
+                }
             }
+            setField(updatedField)
         }
-        setField(updatedField)
     }
 
 
@@ -152,6 +154,6 @@ function App() {
             {gameState === states.LOST && <img src="./src/assets/lost.svg" onClick={startNewGame} className="pic" />}
         </main>
     )
-    }
+}
 
 export default App
