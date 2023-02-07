@@ -6,6 +6,8 @@ const ascendingOrder = (a, b) => a > b ? 1 : -1
 const hasDuplicates = (arr) => new Set(arr).size !== arr.length
 const identity = x => x
 const add = (x, y) => x + y
+const inc = x => x + 1
+const dec = x => x - 1
 
 function App() {
     const rng = () => Math.floor(Math.random() * size * size)
@@ -20,12 +22,16 @@ function App() {
         setMines(mines)
         setGameState(states.START)
         setLosingCell({})
+        startTimer()
+        setFlagsPlaced(0)
     }
-    const [size, setSize] = useState(10)
-    const [mineCount, setMineCount] = useState(10)
+    const [size] = useState(10)
+    const [mineCount] = useState(10)
     const [mines, setMines] = useState(createMines(mineCount))
     const [gameState, setGameState] = useState(states.START)
     const [losingCell, setLosingCell] = useState({})
+    const [flagsPlaced, setFlagsPlaced] = useState(0)
+    const [time, setTime] = useState(0)
 
     const createGrid = (size) => Array(size).fill(Array(size).fill({ isDiscovered: false, isMine: false, isFlagged: false }))
     const enumCell = (rowNo) => (cell, index) => ({ ...cell, id: (rowNo * size + index) })
@@ -45,17 +51,15 @@ function App() {
         return cellIds.map(c => field[c[0]][c[1]]).filter(c => c != cell)
     }
     const addMineCount = (cell) => getNeighbours(cell, field).map(c => c.isMine ? 1 : 0).reduce(add, 0)
-    const addMineCountToRow = (row) => row.map(cell => ({ ...cell, neighbouringMines: cell.isMine ? 0 :addMineCount(cell) }))
+    const addMineCountToRow = (row) => row.map(cell => ({ ...cell, neighbouringMines: cell.isMine ? 0 : addMineCount(cell) }))
 
     const addMines = (mines) => row => row.map(toggleRequiredCells(mines, "isMine"))
     const newField = (mines) => createGrid(10).map(addIds).map(addMines(mines))
     const [field, setField] = useState(newField(mines))
 
     const toggleCellInField = (cell, prop) => (field) => field.map(row => row.map(toggleRequiredCell(cell.id, prop)))
-    const toggleDiscovered = (cell) => setField(toggleCellInField(cell, "isDiscovered"))
 
     const setCellInField = (cell, prop, value) => (field) => field.map(row => row.map(setRequiredCell(cell.id, prop, value)))
-    const setDiscovered = cell => setField(setCellInField(cell, "isDiscovered", true))
 
     const toggleFlagged = (cell) => setField(toggleCellInField(cell, "isFlagged"))
 
@@ -63,8 +67,6 @@ function App() {
     const revealMines = field => field.map(revealMinesInRow)
 
     const gameLossHook = () => { setField(revealMines) }
-    const gameStartHook = () => { setGameState(states.IN_PROGRESS) }
-    const gameWonHook = () => {}
 
     const runGameStateHook = () => {
         switch (gameState) {
@@ -83,7 +85,7 @@ function App() {
 
         const last = clickedCell.isMine ? 1 : 0
         const flagsPlaced = field.flatMap(row => row.map(cell => cell.isFlagged ? 1 : 0)).reduce(add, 0)
-        return (count + last == mineCount) && (flagsPlaced + (clickedCell.isFlagged ? -1 : 1) == mineCount )
+        return (count + last == mineCount) && (flagsPlaced + (clickedCell.isFlagged ? -1 : 1) == mineCount)
     }
 
     const reduceField = (field, cell) => {
@@ -91,7 +93,7 @@ function App() {
             return field
         } else if (cell.neighbouringMines > 0) {
             return setCellInField(cell, "isDiscovered", true)(field)
-        } else if (cell.neighbouringMines == 0){
+        } else if (cell.neighbouringMines == 0) {
             return getNeighbours(cell, field).reduce((f, c) => {
                 const newField = setCellInField(c, "isDiscovered", true)(f)
                 return reduceField(newField, c)
@@ -99,10 +101,22 @@ function App() {
         }
     }
 
+    const updateTime = () => {
+        if (gameState.runTimer) {
+            const updateTime = () => setTime(inc)
+            setTimeout(updateTime, 1000)
+        }
+    }
+    useEffect(updateTime, [time, gameState])
+    const startTimer = () => setTime(0)
+
     const processCellClick = (cell, field) => () => {
         if (!cell.isFlagged) {
             let updatedField = setCellInField(cell, "isDiscovered", true)(field)
-            if (gameState == states.START) setGameState(states.IN_PROGRESS)
+            if (gameState == states.START) {
+                setGameState(states.IN_PROGRESS)
+                startTimer()
+            }
             if (cell.isMine) {
                 setGameState(states.LOST)
                 setLosingCell(cell)
@@ -120,7 +134,11 @@ function App() {
     const processFlagging = (cell) => (e) => {
         e.preventDefault()
         toggleFlagged(cell)
-        if (gameIsWon(cell)) setGameState(states.WON)
+        if (cell.isFlagged) setFlagsPlaced(dec)
+        else if (!cell.isFlagged) setFlagsPlaced(inc)
+        if (gameIsWon(cell)) {
+            setGameState(states.WON)
+        }
     }
 
     const getClassNames = (cell) => {
@@ -136,6 +154,9 @@ function App() {
 
     const disableRightClick = (e) => e.preventDefault()
 
+    const minTwoDigits = (n) => ((n < 10 ? '0' : '') + n)
+    const minThreeDigits = (n) => (n < 100 ? ('0' + minTwoDigits(n)) : ('' + n))
+
     const renderCell = (cell) => (
         <button
             className={getClassNames(cell)}
@@ -144,14 +165,16 @@ function App() {
             disabled={!gameState.clickAllowed}
             onContextMenu={processFlagging(cell)} >{cell.neighbouringMines}
         </button>)
-    const renderRow = (row, i) => (<div className="row" key={i}> {row.map(renderCell)}</div>)
+    const renderRow = (row, i) => (<div className="row" key={i} onContextMenu={disableRightClick}> {row.map(renderCell)}</div>)
     return (
-        <main onContextMenu={disableRightClick}>
+        <main >
+            <section className='header'>
+                <div className="seven-seg">{minTwoDigits(mineCount - flagsPlaced)}</div>
+                <div className="seven-seg right">{minThreeDigits(time)}</div>
+            </section>
             {field.map(renderRow)}
-            {[states.START, states.IN_PROGRESS].includes(gameState) && <img src="./src/assets/sad.svg" disabled={true} className="pic disabled" />}
-            {gameState === states.WON && <img src="./src/assets/smily.svg" onClick={startNewGame} className="pic" />}
+            <img src={gameState.img} onClick={startNewGame} className="pic"/>
             {gameState === states.WON && <Conf />}
-            {gameState === states.LOST && <img src="./src/assets/lost.svg" onClick={startNewGame} className="pic" />}
         </main>
     )
 }
