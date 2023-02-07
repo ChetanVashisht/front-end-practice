@@ -29,6 +29,8 @@ main {
     width: 550px;
     border-radius: 8px;
     height: 650px;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .row {
