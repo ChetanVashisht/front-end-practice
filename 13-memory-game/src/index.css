@@ -1,69 +1,79 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+    --background: #224;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+* {
+    box-sizing: border-box;
 }
-a:hover {
-  color: #535bf2;
-}
+
 
 body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    min-height: 100vh;
+    justify-content: center;
+    background-color: var(--background);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.card {
+    height: 80px;
+    width: 60px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: grab;
+    transition: background 0.5s;
+    transition-timing-function: steps(5, end);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+img {
+    align-self: center;
+    transition: opacity 0.3s;
+    transition-timing-function: steps(5, end);
+    height: 47px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.hide {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+}
+
+.active {
+    background-color: burlywood;
+}
+
+.board {
+    display: grid;
+    width: calc(6*60+5%);
+    grid-template: repeat(5, 1fr)/ repeat(6, 1fr);
+    gap: 2%;
+}
+
+main {
+    align-self: center;
+}
+
+.done {
+    background-color: #aaa;
+    border: 1px solid #eee;
+    cursor: not-allowed;
+}
+
+nav {
+    font-size: xx-large;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 40px;
+}
+
+.done-image {
+    opacity: 0.6;
+    height: 30px;
 }
