@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react"
+import { useEffect } from "react"
 import { useState } from "react"
 import imageData from "./assets/imgImports"
 import Cards from "./components/Cards"
@@ -33,11 +33,11 @@ function App() {
         if (cellsTurned > 0 && cellsTurned % 2 == 0) {
             const [firstCell, secondCell] = cells.filter(c => !c.done && c.show)
             const runFn = firstCell.img === secondCell.img ? setDoneCellsFn : toggleVisibilityCellFn
-            setTimeout(() => setBoardState(checkCellFn([firstCell, secondCell]), runFn([firstCell, secondCell])), 500)
+            setBoardState(checkCellFn([firstCell, secondCell]), runFn([firstCell, secondCell]))
         }
     }
 
-    useLayoutEffect(handleSecondClick, [cellsTurned])
+    useEffect(handleSecondClick, [cellsTurned])
     return (
         <main>
             <Header left={cellsTurned} right={cellsTurned} />

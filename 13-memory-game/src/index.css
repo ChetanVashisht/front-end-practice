@@ -8,9 +8,9 @@
 
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
+    margin: 0;
+    display: flex;
+    place-items: center;
     min-height: 100vh;
     justify-content: center;
     background-color: var(--background);
@@ -24,32 +24,50 @@ body {
     justify-content: center;
     border-radius: 10px;
     cursor: grab;
-    transition: background 0.5s;
-    transition-timing-function: steps(5, end);
 }
 
 img {
     align-self: center;
-    transition: opacity 0.3s;
-    transition-timing-function: steps(5, end);
     height: 47px;
 }
 
 .hide {
     opacity: 0;
+    animation-name: deselect;
+    animation-duration: 1s;
 }
 
 .show {
     opacity: 1;
+    animation-name: select;
+    animation-duration: 0.5s;
 }
 
-.active {
-    background-color: burlywood;
+.done-image {
+    opacity: 0.6;
+    height: 30px;
+    animation-name: freeze;
+    animation-duration: 1s;
 }
+
+@keyframes select {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes deselect {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes freeze {
+    from {opacity: 1; height: 47px;}
+    to {opacity: 0.6; height: 30px;}
+}
+
 
 .board {
     display: grid;
-    width: calc(6*60+5%);
     grid-template: repeat(5, 1fr)/ repeat(6, 1fr);
     gap: 2%;
 }
@@ -58,11 +76,6 @@ main {
     align-self: center;
 }
 
-.done {
-    background-color: #aaa;
-    border: 1px solid #eee;
-    cursor: not-allowed;
-}
 
 nav {
     font-size: xx-large;
@@ -73,7 +86,37 @@ nav {
     padding-left: 40px;
 }
 
-.done-image {
-    opacity: 0.6;
-    height: 30px;
+.active {
+    animation-name: activate;
+    animation-duration: 0.5s;
+    background-color: burlywood;
+}
+
+.none {
+    animation-name: deactivate;
+    animation-duration: 0.75s;
+    background-color: #ddd;
+}
+
+.done {
+    border: 1px solid #eee;
+    cursor: not-allowed;
+    animation-name: confirm;
+    animation-duration: 0.5s;
+    background-color: #aaa;
+}
+
+@keyframes activate {
+    from {background-color: #ddd;}
+    to {background-color: burlywood;}
+}
+
+@keyframes deactivate {
+    from {background-color: burlywood;}
+    to {background-color: #ddd;}
+}
+
+@keyframes confirm {
+    from {background-color: burlywood;}
+    to {background-color: #aaa;}
 }
