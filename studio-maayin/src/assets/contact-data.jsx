@@ -1,7 +1,7 @@
-import address from "./location.jpg"
-import phone from "./phone.png"
-import instagram from "./instagram.jpg"
-import email from "./email.jpg"
+import address from "./location.svg"
+import phone from "./phone.svg"
+import instagram from "./instagram.svg"
+import email from "./email.svg"
 
 export default [
     {
