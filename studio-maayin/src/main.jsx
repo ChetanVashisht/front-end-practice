@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import './carousel.css'
 import Hero from "./components/Hero"
 import AboutUs from "./components/AboutUs"
 import HowWeWork from "./components/HowWeWork"
