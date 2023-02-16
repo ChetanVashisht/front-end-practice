@@ -34,8 +34,6 @@ body {
 
 section, footer {
     padding-top: 30px;
-    place-items: center;
-    position: relative;
 }
 
 footer {
@@ -133,9 +131,6 @@ q {
     align-self: center;
 }
 
-.contact > label {
-}
-
 /***********
  *  Projects
  ***********/
@@ -145,15 +140,16 @@ header {
     background-color: white;
     color: black;
     padding: 0px;
-    position: absolute;
-    top: 0;
     width: 100%;
+    margin-top: 0;
 }
 
-header > h1 {
+header > * > h1 {
     font-family: gangitem;
     font-size: 3.5rem;
     margin-left: 30px;
+    margin-top: 0px;
+    padding-top: 15px;
 }
 
 .carousel {
@@ -193,4 +189,24 @@ header > h1 {
 .arrow-left {
     height: 30px;
     transform: rotate(180deg);
+}
+
+.projects {
+    display: flex;
+    flex-direction: row;
+    max-width: 1500px;
+    flex-wrap: wrap;
+    align-self: center;
+    justify-content: space-evenly;
+}
+
+.section-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-highlight {
+    color: black;
 }
