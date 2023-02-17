@@ -1,14 +1,18 @@
+import hammer from "./hammer.svg"
+import bulb from "./bulb.svg"
+import fountain from "./fountain.svg"
+
 export default [
     {
-        img: "./src/assets/hammer.svg",
+        img: hammer,
         desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
     },
     {
-        img: "./src/assets/bulb.svg",
+        img: bulb,
         desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
     },
     {
-        img: "./src/assets/fountain.svg",
+        img: fountain,
         desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s I can type more here, let's see what happens"
     },
 ]
