@@ -1,0 +1,41 @@
+:root {
+    --cell-size: 15px;
+    --cell-gap: 0px;
+    --row-width: 20;
+}
+
+body {
+    margin:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #444;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(var(--row-width), var(--cell-size));
+    gap: var(--cell-gap);
+}
+
+.cell {
+    height: var(--cell-size);
+    width: var(--cell-size);
+    background-color: slategray;
+    border-radius: 1px;
+    border: none;
+    transition: all 0.9s ease-in;
+}
+
+.snake {
+    background-color: red;
+}
+
+.posion {
+    background-color: lightgoldenrodyellow;
+}
+
+.life {
+    background-color: lightpink;
+}
