@@ -1,5 +1,5 @@
 :root {
-    --cell-size: 15px;
+    --cell-size: 25px;
     --cell-gap: 0px;
     --row-width: 20;
 }
@@ -17,6 +17,7 @@ main {
     display: grid;
     grid-template-columns: repeat(var(--row-width), var(--cell-size));
     gap: var(--cell-gap);
+    background-color: slategray;
 }
 
 .cell {
@@ -25,7 +26,6 @@ main {
     background-color: slategray;
     border-radius: 1px;
     border: none;
-    transition: all 0.1s ease-out;
 }
 
 .snake {
@@ -33,9 +33,64 @@ main {
 }
 
 .posion {
-    background-color: lightgoldenrodyellow;
+    animation-name: glowing-eyes;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    background-image: url("./assets/skull.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .life {
-    background-color: lightpink;
+    animation-name: life-cell;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    border-radius: 50%;
+}
+.next {
+    background-color: white;
+}
+
+@keyframes life-cell {
+    0% {background-color: lightpink;}
+    50% {background-color: white;}
+    100% {background-color: lightpink;}
+}
+
+@keyframes glowing-eyes {
+    0% {opacity: 0.2;}
+    50% {opacity: 1;}
+    100% {opacity: 0.2;}
+}
+
+button {
+    font-family: monospace;
+    background-color: antiquewhite;
+    margin: 5px 0;
+    height: var(--cell-size);
+    box-shadow:0 1px 2px #5e5d5b;
+    text-align: center;
+}
+
+.fullwidth {
+    width: calc(var(--cell-size)* var(--row-width));
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.hide {
+    transition: 0.3s all ease-out;
+    visibility: hidden;
+}
+
+p {
+    color: antiquewhite;
+    text-align: center;
+}
+
+.glow {
+    box-shadow: 0 0 30px #f00;
 }
