@@ -210,3 +210,60 @@ header > * > h1 {
 .no-highlight {
     color: black;
 }
+
+.project-description {
+    margin-top: 150px;
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
+    grid-template-columns: minmax(350px, 1fr) minmax(1fr, 1000px);
+    grid-template-areas: "l r";
+}
+
+.project-d-left {
+    margin-left: 30px;
+    font-family: gangitem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-transform: uppercase;
+}
+
+.project-d-left > h2 {
+    font-size: 3rem;
+    font-weight: bolder;
+    margin: 20px 0;
+}
+
+.project-d-left > span {
+    font-size: 1.2rem;
+}
+
+.project-d-right {
+    margin: 0 30px;
+    font-size: 1.2rem;
+    text-align: left;
+    max-height: 800px;
+    overflow-y: scroll;
+}
+
+.image-grid {
+    display: grid;
+    grid-gap: 40px;
+    grid-auto-rows: 400px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-auto-flow: dense;
+    margin: 50px;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.wide {
+    grid-column: span 2;
+}
+.tall {
+    grid-row: span 2;
+}
