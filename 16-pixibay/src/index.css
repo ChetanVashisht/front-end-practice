@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #0000ee
+}
+
+body {
+    background-color: #ccc;
+    margin: 0;
+}
+
+nav {
+    height: 100px;
+    display: flex;
+    background-color: indianred;
+    align-items: center;
+    padding: 30px;
+    box-shadow: 0 2px 5px #666;
+}
+
+.nav-right {
+    margin-left: auto;
+}
+
+.nav-left {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+.cart {
+    height: 50px;
+}
+
+.photos {
+    padding: 10px;
+    display: grid;
+    grid-gap: 2px;
+    grid-auto-rows: 100px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-flow: dense;
+    transition: 2s all ease-in-out;
+}
+
+img.image-grid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.image {
+    position: relative;
+}
+.img-tl {
+    position: absolute;
+    width: 20px;
+    left: 10px;
+    top: 10px;
+}
+.img-tr {
+    position: absolute;
+    width: 20px;
+    right: 10px;
+    top: 10px;
+}
+
+.wide {
+    grid-column: span 2;
+}
+
+.tall {
+    grid-row: span 2;
+}
+
+.big {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.row {
+    margin: 30px;
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    align-items: center;
+}
+
+.row-left {
+    height: 100%;
+    width: 200px;
+    object-fit: cover;
+}
+
+.row-right {
+    height: 30px;
+    margin-left: auto;
+}
+
+.clear-cart {
+    padding: 20px;
+    margin: 30px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 3px 7px blue;
+    color: blue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    float: right;
+    background-color: indianred;
+    cursor: grab;
+}
+
+.hide {
+    display: none;
+}
