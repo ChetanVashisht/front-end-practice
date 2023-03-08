@@ -12,19 +12,20 @@ export default function Solutions() {
     const { newBoard, row, placeQueen, replaceSquares, column, diagonals } = useContext(BoardContext)
     const [board, setBoard] = useState(newBoard(boardSize) )
 
-    const populateFirstRow = () => {
-        const square = board.at(36)
-        const firstRow = row(board, square ).map(placeQueen)
-        const firstColumn = column(board, square).map(placeQueen)
-        const diags = diagonals(board, square).map(placeQueen)
-        setBoard(replaceSquares(replaceSquares(replaceSquares(board, firstRow), firstColumn), diags))
+    const populateQueens = (sq = 36) => {
+        const nb = newBoard(boardSize)
+        const square = nb.at(sq)
+        const firstRow = row(nb, square ).map(placeQueen)
+        const firstColumn = column(nb, square).map(placeQueen)
+        const diags = diagonals(nb, square).map(placeQueen)
+        setBoard(replaceSquares(replaceSquares(replaceSquares(nb, firstRow), firstColumn), diags))
     }
-    useEffect(populateFirstRow, [])
+    useEffect(populateQueens, [])
 
     return (
         <section>
             <Link to="/"><button>Home</button></Link>
-            <Chessboard board={board} boardSize={parseInt(boardSize)} />
+            <Chessboard board={board} boardSize={parseInt(boardSize)} handleClick={populateQueens} />
         </section>
     )
 }
