@@ -1,0 +1,76 @@
+:root {
+    --black: #111;
+    --white: #ddd;
+    --dark: #aaa;
+    --big-size: 50px;
+    --small-size: 10px;
+    --board-size: 8;
+}
+
+body {
+    margin: 0;
+    background-color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+.black {
+    background-color: var(--black);
+}
+.white {
+    background-color: var(--white);
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    align-self: center;
+}
+
+.board {
+    display: grid;
+    grid-auto-rows: var(--big-size);
+    grid-template-columns: repeat(var(--board-size), var(--big-size));
+    margin: 20px;
+}
+
+.square {
+    height: var(--big-size);
+    width: var(--big-size);
+}
+
+button {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: grab;
+    transition: all 0.3s ease-in-out;
+    box-shadow: inset 0 0 1px 1px black;
+    color: var(--black);
+}
+
+button:hover {
+    box-shadow: inset 0 0 20px 12px #4793e5;
+    color: var(--white);
+}
+
+input[type=range] {
+    width: 200px;
+}
+
+.piece {
+    background-image: url("./assets/queen.svg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
