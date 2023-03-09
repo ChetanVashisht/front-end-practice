@@ -8,7 +8,7 @@ function App() {
         <main>
             <Routes>
                 <Route exact path="/" element={<Home />} />
-                <Route path="/solutions/:boardSize" element={<Solutions />} />
+                <Route path="/solutions/:boardSize" element={<Solutions key={Math.floor(Math.random() * 100)} />} />
             </Routes>
         </main>
     )

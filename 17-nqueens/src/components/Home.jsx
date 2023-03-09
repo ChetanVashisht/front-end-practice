@@ -1,15 +1,13 @@
 import React from 'react'
 import { useEffect } from 'react'
-import { useContext } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { BoardContext } from '../Board'
+import { newBoard } from '../Board'
 import Chessboard from './Chessboard'
 
 export default function Home() {
     const [boardSize, setBoardSize] = useState(8)
     const updateBoardSize = (e) => setBoardSize(e.target.value)
-    const { newBoard } = useContext(BoardContext)
 
     const [board, setBoard] = useState(newBoard(boardSize))
     const updateBoard = () => setBoard(newBoard(boardSize))
