@@ -16,7 +16,7 @@ export default function Home() {
     return (
         <section>
             <h1> Welcome to n Queens </h1>
-            <input type="range" min={5} max={9} onChange={updateBoardSize} name="boardSize" value={boardSize} />
+            <input type="range" min={4} max={11} onChange={updateBoardSize} name="boardSize" value={boardSize} />
             <Chessboard board={board} boardSize={boardSize} />
             <Link to={`/solutions/${boardSize}`}> <button>Generate Solutions</button> </Link>
         </section>

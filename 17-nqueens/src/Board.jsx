@@ -1,11 +1,12 @@
 export const QUEEN = "queen"
 export const newBoard = (size) => Array(size * size).fill(0).map((_, i) => ({ id: i, piece: null, col: Math.floor(i / size), row: i % size }))
 export const row = (board, square) => board.filter(sq => sq.col == square.col && sq.id != square.id)
+export const rowWith = (board, square) => board.filter(sq => sq.col == square.col)
 export const column = (board, square) => board.filter(sq => sq.row == square.row && sq.id != square.id)
 export const columnWith = (board, square) => board.filter(sq => sq.row == square.row)
 export const diagonals = (board, square) => {
     const { col, row } = square
-    const size = board.at(-1).col + 1
+    const size = board.at(-1).row + 1
     const arr = []
     for (var i = 1; i < size; i++) {
         const left = row + i
@@ -29,6 +30,15 @@ export const columns = (board, boardSize) => {
     for (var i = 0; i < boardSize; i++) {
         const col = columnWith(board, board.at(i))
         arr.push(col)
+    }
+    return arr
+}
+
+export const rows = (board, boardSize) => {
+    const arr = []
+    for (var i = 0; i < boardSize; i++) {
+        const row = rowWith(board, board.at(boardSize * i))
+        arr.push(row)
     }
     return arr
 }
