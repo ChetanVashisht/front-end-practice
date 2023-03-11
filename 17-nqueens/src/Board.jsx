@@ -42,3 +42,24 @@ export const rows = (board, boardSize) => {
     }
     return arr
 }
+
+export const iterateSolutions = (boardSize) => {
+    const refBoard = newBoard(boardSize)
+    const allRows = rows(refBoard, boardSize)
+
+    const sol = allRows.reduce((boards, row) => {
+        const newRows = row.map((sq, i) => {
+            const square = placeQueen(sq)
+            return { row: [...row.slice(0, i), square, ...row.slice(i + 1)], sq: square }
+        })
+        const appendedRows = boards.flatMap((board) => newRows.map(newRow => {
+            const b = board?.board === undefined ? [] : board.board
+            return { board: [...b, ...newRow.row], sq: newRow.sq }
+        }))
+        return appendedRows.filter(({ board, sq }) => {
+            const blocked = [...column(board, sq), ...diagonals(board, sq)].filter(x => x != undefined)
+            return !blocked.reduce((acc, cell) => acc || cell.piece == QUEEN, false)
+        })
+    }, [[]])
+    return sol.map(x => x.board)
+}

@@ -3,14 +3,10 @@ import { useEffect } from "react";
 import { createContext } from "react";
 import { newBoard, placeQueen, diagonals, QUEEN, rows, column as columnOf } from "./Board";
 
-const BoardContext = createContext(null)
 
 const BoardContextProvider = ({ children }) => {
-    const [boardSize, setBoardSize] = useState(0)
-    const [boards, setBoards] = useState([])
 
-    useEffect(() => {
-        const iterateSolutions = () => {
+        const iterateSolutions = (boardSize) => {
             const refBoard = newBoard(boardSize)
 
             const allRows = rows(refBoard, boardSize)
@@ -30,11 +26,5 @@ const BoardContextProvider = ({ children }) => {
             }, [[]])
             setBoards(sol.map(b => b.board))
         }
-        setBoards([])
-        setTimeout(iterateSolutions, 0)
-    }, [boardSize])
 
-    return (<BoardContext.Provider value={{ boardSize, setBoardSize, boards }}> {children}</BoardContext.Provider>)
 }
-
-export { BoardContext, BoardContextProvider }

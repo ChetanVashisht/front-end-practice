@@ -10,7 +10,6 @@ export default function Chessboard({ board, boardSize}) {
             isEven(Math.floor(id / size)) ? colours.at(id % 2) : colours.reverse().at(id % 2)
     }
     const renderSquare = (square) => (<Square square={square} key={square.id} colour={getColour(boardSize, square.id)} />)
-    document.documentElement.style.setProperty('--board-size', boardSize)
 
     return (
         <div className='board'>

@@ -30,6 +30,8 @@ section {
 h1 {
     text-align: center;
     font-size: xx-large;
+    color: white;
+    text-shadow: 2px 2px 8px black;
 }
 
 .board {
@@ -86,5 +88,4 @@ input[type=range] {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-block: 50px;
 }
