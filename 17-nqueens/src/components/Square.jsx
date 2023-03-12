@@ -1,10 +1,11 @@
 import React from 'react'
 
-export default function Square({ square, colour }) {
+export default function Square({ square, colour, handleClick, disabled }) {
     const { piece, id } = square
     return (
-        <div className={`square ${colour}`} id={id}>
+        <button className={`${colour} square`} id={id} onClick={handleClick} disabled={disabled}>
+            {disabled && <span data-tooltip="I am a tooltip" className='tooltip-base' />}
             {piece && <div className='piece'></div>}
-        </div>
+        </button>
     )
 }

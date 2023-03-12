@@ -1,5 +1,8 @@
 export const QUEEN = "queen"
-export const newBoard = (size) => Array(size * size).fill(0).map((_, i) => ({ id: i, piece: null, col: Math.floor(i / size), row: i % size }))
+export const DISCOVER_SOLUTIONS = "DISCOVER_SOLUTIONS"
+export const CALCULATE_POSITIONS = "CALCULATE_POSITIONS"
+
+    export const newBoard = (size) => Array(size * size).fill(0).map((_, i) => ({ id: i, piece: null, col: Math.floor(i / size), row: i % size }))
 export const row = (board, square) => board.filter(sq => sq.col == square.col && sq.id != square.id)
 export const rowWith = (board, square) => board.filter(sq => sq.col == square.col)
 export const column = (board, square) => board.filter(sq => sq.row == square.row && sq.id != square.id)
