@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { CALCULATE_POSITIONS } from '../Board';
 import Chessboard from './Chessboard'
 import Worker from "../worker.js?worker";
-import { useRef } from 'react';
 const worker = new Worker()
 
 export default function Solutions({ boards, boardSize }) {

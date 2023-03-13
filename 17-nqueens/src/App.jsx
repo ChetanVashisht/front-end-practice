@@ -4,7 +4,7 @@ import Solutions from "./components/Solutions"
 import Home from "./components/Home"
 import { useRef } from "react"
 import { useEffect } from "react"
-import { DISCOVER_SOLUTIONS } from "./Board";
+import { DISCOVER_SOLUTIONS, numberRange } from "./Board";
 
 /**
    For loading web workers, we need just tell vite about it
@@ -20,7 +20,6 @@ function App() {
     const [solutions, setSolutions] = useState(null)
     const [loading, setLoading] = useState(true);
 
-    const numberRange = (start, end) => new Array(end - start).fill().map((_, i) => i + start)
     const updateBoardSize = (e) => setBoardSize(parseInt(e.target.value))
     const setup = () => {
         /** https://stackoverflow.com/q/68233906/4110233 **/

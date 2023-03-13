@@ -66,3 +66,5 @@ export const iterateSolutions = (boardSize) => {
     }, [[]])
     return sol.map(x => x.board)
 }
+
+export const numberRange = (start, end) => new Array(end - start).fill().map((_, i) => i + start)
