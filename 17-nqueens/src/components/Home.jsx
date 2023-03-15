@@ -6,13 +6,13 @@ export default function Home({ updateBoardSize, boardSize, range }) {
     const renderInput = (number) => (
         <div key={number} onChange={updateBoardSize}>
             <input type="radio" id={number} name="input" value={number} checked={isSelected(number) ? `checked` : ``} onChange={updateBoardSize} />
-            <label className={`${isSelected(number) ? 'selected' : 'not-selected'}`} htmlFor={number}>{number}</label>
+            <label className={`${isSelected(number) ? 'selected' : 'not-selected'} select`} htmlFor={number}>{number}</label>
         </div>
     )
     return (
         <section>
             <h1> Welcome to n Queens </h1>
-            <div className="input">
+            <div className="input noselect">
                 {numberRange(range.min, range.max + 1).map(renderInput)}
             </div>
         </section>
