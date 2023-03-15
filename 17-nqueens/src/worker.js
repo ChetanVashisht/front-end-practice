@@ -2,7 +2,7 @@ import { CALCULATE_POSITIONS, DISCOVER_SOLUTIONS, iterateSolutions, newBoard, QU
 
 const cache = {}
 onmessage = function ({ data: { message, size, data } }) {
-    console.log(message, size, data)
+    // console.log(message, size, data)
     if (message == DISCOVER_SOLUTIONS) {
         this.postMessage(calculateSolutions(size))
     } else if (message == CALCULATE_POSITIONS) {

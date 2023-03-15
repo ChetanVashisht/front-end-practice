@@ -7,7 +7,7 @@ import Worker from "../worker.js?worker";
 const worker = new Worker()
 
 export default function Solutions({ boards, boardSize }) {
-    const [hasComputed, sethasComputed] = useState(false)
+    const [hasComputed, setHasComputed] = useState(false)
     const [onClicks, setOnClicks] = useState(null)
     const [solution, setSolution] = useState(null)
     document.documentElement.style.setProperty('--board-size', boardSize)
@@ -15,18 +15,12 @@ export default function Solutions({ boards, boardSize }) {
 
     const setup = () => {
         if (boards) {
-            sethasComputed(true)
+            setHasComputed(true)
             setSolution(getRandom(boards))
             new Promise((resolve) => {
-                worker.onmessage = ({ data }) => {
-                    console.log(data)
-                    resolve(data)
-                }
+                worker.onmessage = ({ data }) => resolve(data)
                 worker.postMessage({ message: CALCULATE_POSITIONS, data: { size: boardSize, boards: boards } })
-            }).then(data => {
-                console.log(data)
-                setOnClicks(data)
-            })
+            }).then(setOnClicks)
         }
     }
     useEffect(setup, [boards])
