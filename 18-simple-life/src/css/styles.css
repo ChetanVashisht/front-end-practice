@@ -75,12 +75,12 @@ h3 {
 .widget h3 {
     font-size: 1rem;
 }
-.posts h3 {
+.post h3 {
     margin-top: 0;
     margin-bottom: 1em;
     font-size: 1.3rem;
 }
-.posts p, .posts span {
+.post p, .post span {
     color: var(--grey-seventy);
     font-weight: 100;
 }
@@ -199,6 +199,39 @@ hr {
     width: calc(98% - 200px);
 }
 
+.widget > :last-child, .widget > :last-child h3{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+@media(max-width: 900px) {
+    .container-main {
+        flex-direction: column-reverse;
+    }
+    .container-main-section {
+        width: 100%;
+    }
+    .post {
+        flex-direction: column;
+    }
+    .post-image-section,
+    .post-content-section{
+        width: 100%;
+        margin-top: 1em;
+    }
+    .post-image-section span {
+        text-align: end;
+    }
+    .widget {
+        width: 100%;
+        padding: 2em;
+    }
+    .post-widget img {
+        height: 20vh;
+        object-fit: cover;
+    }
+}
+
 .featured {
     flex-direction: column;
     margin-bottom: 0;
@@ -257,10 +290,6 @@ nav a:focus {
 }
 
 /* about-me */
-
-.about-me {
-    font-family: 'Lora', serif;
-}
 
 .about-me b {
     font-weight: 700;
