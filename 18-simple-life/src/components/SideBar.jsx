@@ -4,7 +4,7 @@ import { AboutMeWidget } from './AboutMe'
 
 export default function SideBar() {
     return (
-        <div>
+        <div className=''>
             <AboutMeWidget />
             <RecentPostsWidget />
         </div>

@@ -11,12 +11,16 @@ function App() {
     return (
         <div>
             <Header />
-            <SideBar />
-            <Routes>
-                <Route exact path="" element={<Home />} />
-                <Route exact path="about-me" element={<AboutMePage />} />
-                <Route exact path="recent-posts" element={<RecentPostsPage />} />
-            </Routes>
+            <div className="container container-main">
+                <SideBar />
+                <div className="container-main-section">
+                    <Routes>
+                        <Route exact path="" element={<Home />} />
+                        <Route exact path="about-me" element={<AboutMePage />} />
+                        <Route exact path="recent-posts" element={<RecentPostsPage />} />
+                    </Routes>
+                </div>
+            </div>
             <Footer />
         </div>
     )

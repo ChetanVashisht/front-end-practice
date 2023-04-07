@@ -138,66 +138,12 @@ h1 {
   100% { transform: rotate(360deg) }
 }
 
-.tooltip {
-    display:inline-block;
-    position:relative;
-    border-bottom:1px dotted #666;
-    text-align:left;
-}
-
-.tooltip .right {
-    min-width:200px;
-    top:50%;
-    left:100%;
-    margin-left:20px;
-    transform:translate(0, -50%);
-    padding:10px 20px;
-    color:#000000;
-    background-color:#FFCC33;
-    font-weight:normal;
-    font-size:13px;
-    border-radius:8px;
-    position:absolute;
-    z-index:99999999;
-    box-sizing:border-box;
-    box-shadow:0 1px 8px #000000;
-    visibility:hidden;
-    opacity:0;
-    transition:opacity 0.8s;
-}
-
-.tooltip:hover .right {
-    visibility:visible; opacity:1;
-}
-
-.tooltip .right i {
-    position:absolute;
-    top:50%;
-    right:100%;
-    margin-top:-12px;
-    width:12px;
-    height:24px;
-    overflow:hidden;
-}
-
-.tooltip .right i::after {
-    content:'';
-    position:absolute;
-    width:12px;
-    height:12px;
-    left:0;
-    top:50%;
-    transform:translate(50%,-50%) rotate(-45deg);
-    background-color:#FFCC33;
-    border:1px solid #FFFFFF;
-    box-shadow:0 1px 8px #000000;
-}
-
 .input {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    transition: 0.6s all ease-in;
 }
 input {
     cursor: grab;
@@ -228,12 +174,12 @@ label {
 .selected {
     color: var(--black);
     text-shadow: 2px 2px 8px white;
-    transition: 0.6s all ease-in;
 }
 
 .not-selected {
     color: white;
 }
+
 input:checked{
     text-shadow: none;
 }
