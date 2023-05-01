@@ -19,7 +19,7 @@ export default function ProjectsCarousel() {
     const incTrackedFrames = () => setTrackedFrames(trackedFrames.map(i => incmod(i, projects.length)))
     const decTrackedFrames = () => setTrackedFrames(trackedFrames.map(i => decmod(i, projects.length)))
 
-    const renderImages = (project, index) => (<Project project={project} key={index} />)
+    const renderImages = project => (<Project project={project} key={project.id} />)
     const images = projects.map(renderImages)
     const chooseImage = (index) => images[index]
 
