@@ -78,4 +78,4 @@ const data = [
     },
 
 ]
-export default { picture: _IMG_3674, images: data };
+export default data;

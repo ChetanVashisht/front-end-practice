@@ -23,6 +23,7 @@ if (path[path.length - 1] === "/") {
 }
 
 //files to import
+/**
 const importThese = [
     "png",
     "jpg",
@@ -34,12 +35,17 @@ const importThese = [
     "raw",
     "bmp",
     "heif",
+    "heic",
     "indd",
+	"heic",
+	"heif",
     "svg",
     "ai",
     "eps",
     "pdf",
 ];
+**/
+const importThese = ["jpg"];
 
 if (!path) {
     console.log(
