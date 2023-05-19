@@ -20,9 +20,9 @@ export default function ProjectPage() {
         <section>
             <div className='project-description'>
                 <div className='project-d-left'>
-                    <span> {project.type} </span>
+                    <h5> {project.type} </h5>
                     <h2> {project.name} </h2>
-                    <span> {project.date} </span>
+                    <h5> {project.date} </h5>
                 </div>
                 <p className='project-d-right'> {project.description} </p>
             </div>

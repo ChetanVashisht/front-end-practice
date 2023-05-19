@@ -3,7 +3,8 @@ import projects from '../assets/project-data'
 import Project from './Project'
 
 export default function Projects() {
-    const renderProject = (project, n) => (<Project project={project} key={n} />)
+    const renderProject = (project, n) => (<Project project={project} key={n} className="project"/>)
+    console.log(projects);
     return (
         <div>
             <section className='section-flex'>

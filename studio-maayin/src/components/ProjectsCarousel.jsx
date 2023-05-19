@@ -19,17 +19,17 @@ export default function ProjectsCarousel() {
     const incTrackedFrames = () => setTrackedFrames(trackedFrames.map(i => incmod(i, projects.length)))
     const decTrackedFrames = () => setTrackedFrames(trackedFrames.map(i => decmod(i, projects.length)))
 
-    const renderImages = project => (<Project project={project} key={project.id} />)
-    const images = projects.map(renderImages)
+    const renderImages = project => (<Project project={project} key={project.id} className="slider" />)
+    const images = projects.map(renderImages).slice(0, 5)
     const chooseImage = (index) => images[index]
 
     return (
-        <section>
+        <section className='projects-carousel-section'>
             <Link to="/projects"><h2>Projects</h2></Link>
             <div className='carousel'>
-                <img onClick={decTrackedFrames} src={arrow} className='arrow arrow-left' />
+                {/* <img onClick={decTrackedFrames} src={arrow} className='arrow arrow-left' /> */}
                 {trackedFrames.map(chooseImage)}
-                <img onClick={incTrackedFrames} src={arrow} className='arrow' />
+                {/* <img onClick={incTrackedFrames} src={arrow} className='arrow' /> */}
             </div>
         </section>
     )
