@@ -20,10 +20,8 @@ function convertImages()
 	cd ..
 }
 
-## declare an array variable
 declare -a folders=("Bayars-store" "Usha-Latesh-house" "anna-poorna" "bnr-hills" "kaustubha" "kesuvin-farm-house" "ravinarayan" "yogatute")
 
-## now loop through the above array
 for i in "${folders[@]}"
 do
 	echo "Generating from folder $i"
