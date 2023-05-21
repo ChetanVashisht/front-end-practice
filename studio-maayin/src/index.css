@@ -6,33 +6,44 @@
 * {
     font: 1rem/1.4 Georgia, serif;
     box-sizing: border-box;
+    letter-spacing: 1px;
 }
 
 body {
     margin: 0;
     background: #E3DEDE;
 }
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 a {
     text-decoration: none;
+    color: inherit;
 }
 
-.hero > h1 {
-    margin: 0;
-    padding: 5em;
-    font-size: 3rem;
-    font-family: gangitem, serif;
-    text-align: center;
+h5 {
+    margin-block: 1em 0;
 }
 
-@media(max-width: 764px) {
-    .hero > h1 {
-        padding: 2em 0;
-    }
+section {
+    max-width: 100em;
+    margin-inline: auto;
+}
+
+header {
+    background-color: white;
+    color: black;
+    width: 100%;
+}
+
+footer {
+    margin-bottom: 4em;
 }
 
 .hero {
-    margin-top: 0px;
-    padding-top: 0px;
     background-image: url('./assets/cover.jpeg');
     background-repeat: no-repeat;
     background-origin: padding-box;
@@ -40,9 +51,27 @@ a {
     background-size: cover;
 }
 
-footer {
-    margin-bottom: 4em;
+h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-family: gangitem, serif;
+    text-align: center;
 }
+
+.h1-nav {
+    padding: 0.5em;
+}
+
+.h1-hero {
+    padding: 5em 0;
+}
+
+@media(max-width: 764px) {
+    .h1-hero {
+        padding: 2em 0;
+    }
+}
+
 
 h2 {
     font-family: gangitem, serif;
@@ -51,7 +80,13 @@ h2 {
     color: black;
     text-align: center;
     text-transform: uppercase;
-    margin-block: 1em;
+    margin-block: 0.75em;
+}
+
+@media(max-width: 764px) {
+    h2 {
+        margin-block: 0.5em;
+    }
 }
 
 .horizontal-block {
@@ -78,55 +113,45 @@ h2 {
     right: 0;
 }
 
-.projects-carousel-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.carousel {
+    width: 95vw;
+    max-width: 100em;
+    overflow: hidden;
 }
 
-.carousel {
+@media(max-width: 764px) {
+    .carousel {
+    }
+}
+
+.carousel-roll {
     display: flex;
-    overflow: hidden;
     flex-direction: row;
     justify-content: center;
-    width: 30em;
+    overflow: visible;
 }
 
 .slider {
     height: 20em;
+    width: 20em;
+    margin-inline: 0.5em;
     border-radius: 5px;
 }
-@keyframes animation-slider-0 {
-    0% {transform: translateX(0);}
-    25% {transform: translateX(-100%);}
-    25.0001% {transform: translateX(100%);}
-    50% {transform: translateX(100%);}
-    75% {transform: translateX(0%);}
-    100% {transform: translateX(0%);}
+
+@keyframes animation-slider {
+    0% {transform: translateX(-200%);}
+    12.5% {transform: translateX(-150%);}
+    25.0% {transform: translateX(-100%);}
+    37.5% {transform: translateX(-50%);}
+    50.0% {transform: translateX(0%);}
+    62.5% {transform: translateX(50%);}
+    75.0% {transform: translateX(100%);}
+    87.5% {transform: translateX(150%);}
+    100% {transform: translateX(200%);}
 }
 
-@keyframes animation-slider-1 {
-    0% {transform: translateX(0);}
-    25% {transform: translateX(-100%);}
-    50% {transform: translateX(-100%);}
-    75% {transform: translateX(-200%);}
-    100% {transform: translateX(-200%);}
-}
-
-.slider:nth-child(1) {
-    animation: animation-slider-0 6s 2s infinite;
-}
-
-.slider:nth-child(2) {
-    animation: animation-slider-1 6s 2s infinite;
-}
-
-.contacts {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+.carousel-roll {
+    animation: animation-slider 25s infinite;
 }
 
 .alternate {
@@ -160,6 +185,13 @@ q {
     font: 1.25rem/1.4 Georgia, serif;
 }
 
+.contacts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
 .contact {
     display: flex;
     flex-direction: column;
@@ -168,30 +200,12 @@ q {
 
 .contact > a > img {
     width: 50px;
-    align-self: center;
+    object-fit: contain;
 }
 
 /***********
  *  Projects
  ***********/
-
-header {
-    height: 100px;
-    background-color: white;
-    color: black;
-    padding: 0px;
-    width: 100%;
-    margin-top: 0;
-}
-
-header > * > h1 {
-    font-family: gangitem, serif;
-    font-size: 3.5rem;
-    margin-left: 30px;
-    margin-top: 0px;
-    padding-top: 15px;
-}
-
 
 .arrow {
     height: 30px;
@@ -206,23 +220,36 @@ header > * > h1 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-self: center;
+    justify-content: space-around;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    margin-bottom: 1em;
+}
+
+.card-text {
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 0.5em;
 }
 
 .project {
     height: 30em;
-    width: 20em;
+    width: 40em;
+    max-width: 95vw;
     border-radius: 5px;
     margin: 1em;
-    object-fit: cover;
 }
 
 @media(max-width: 764px) {
     .project {
-        height: 10em;
+        height: 20em;
     }
 }
+
 
 .section-flex {
     display: flex;
@@ -231,13 +258,10 @@ header > * > h1 {
     align-items: center;
 }
 
-.no-highlight {
-    color: black;
-}
-
 .project-description {
     display: flex;
     flex-direction: row;
+    padding-block: 1em 1.5em;
 }
 
 .project-d-left {
@@ -247,8 +271,8 @@ header > * > h1 {
     text-transform: uppercase;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
+    align-items: center;
+    justify-content: center;
 }
 
 .project-d-right {
@@ -257,9 +281,6 @@ header > * > h1 {
     width: 62%;
 }
 
-h5 {
-    margin-block: 1em;
-}
 
 @media(max-width: 764px) {
     .project-description {
@@ -270,6 +291,8 @@ h5 {
         padding-inline: 1em;
         padding-block: 0;
         width: 100%;
+        text-align: center;
+        align-items: center;
     }
 }
 
@@ -282,24 +305,13 @@ h5 {
     gap: 1em;
 }
 
-.img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 .wide {
     grid-column: span 2;
 }
 .tall {
     grid-row: span 2;
 }
-.disappear {
-    display: inline;
-}
 @media(max-width: 764px) {
-    .disappear {
-        display: none;
-    }
     .image-grid {
         gap: 1em;
         grid-template-columns: 1fr;
@@ -308,5 +320,15 @@ h5 {
     .tall {
         grid-row: span 1;
         grid-column: span 1;
+    }
+}
+
+
+.disappear {
+    display: inline;
+}
+@media(max-width: 764px) {
+    .disappear {
+        display: none;
     }
 }

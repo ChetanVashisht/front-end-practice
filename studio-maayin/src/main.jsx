@@ -9,6 +9,7 @@ import Header from "./components/Header"
 import Projects from "./components/Projects"
 import ScrollToTop from "./components/ScrollToTop"
 import ProjectPage from "./components/ProjectPage"
+import Hero from './components/Hero'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -16,6 +17,7 @@ root.render(
         <ScrollToTop>
         </ScrollToTop>
         <Routes>
+            <Route path="/" element={<Hero />} />
             <Route path="/projects/*" element={<Header />} />
         </Routes>
         <Routes>

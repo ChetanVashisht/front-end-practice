@@ -8,7 +8,10 @@ export default function Project({ project, className }) {
     const getSlug = (project) => project.name.replaceAll(/[\s,]+/g, '-')
     return (
         <Link to={`/projects/${project.id}/${getSlug(project)}`}>
-            <img className={className} src={getPic(project)} />
+            <div className='card'>
+                <img src={getPic(project)} className={className} />
+                <label className='card-text'>{project.name}</label>
+            </div>
         </Link>
     )
 }

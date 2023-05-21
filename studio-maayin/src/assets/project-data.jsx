@@ -55,15 +55,6 @@ export default [
         "description": "The Kesuvin house, is an apartment in JP Nagar, Bangalore. The clients had this idea of a modern dark themed house. Consequently, black marble flooring was the focal point of this project. The palette to go with this was wood, dark fabrics, neutral tones and warm lighting. Furniture and accents have been sourced from multiple luxury brands to continue the opulent theme."
     },
     {
-        "id": 6,
-        "name": "Hrishi Farm House",
-        "location": "Kanakapura, Bangalore",
-        "date": "2022-23",
-        "type": "Interiors and Architecture",
-        "images": [],
-        "description": "The Farm, is a family farmhouse located on Kanakapura road, about thirty minutes from Bangalore. It is designed to be the perfect weekend getaway for the family. The client also wanted to rent it out for huge parties when they are not using it. Hence, the design wrote itself to be three blocks. One common central block with living, dining and kitchen spaces, one block with bedrooms opening up to the pool, for the crowd that will party and one block with luxurious private bedrooms only for the family’s use, tucked away from the noise.\n The site has a slope down towards the west with a beautiful lake view. The three blocks are placed parallel to each other, with courtyards in between. This creates a channel for the wind flow, allows the diffused light in throughout the day and minimises the exposure to the west sun while retaining the opening to the view. One of the courtyards is designed as a party deck with a pool and the other as a more silent, relaxing one. The language and materials of the building were inspired by modernist and minimalist ideologies."
-    },
-    {
         "id": 7,
         "name": "Kesuvinamane",
         "location": "Teerthahalli",
@@ -71,6 +62,15 @@ export default [
         "type": "Interiors and Architecture",
         "images": kesuvinFH,
         "description": "The Kesuvinamane, was an existing heritage home for three families, located in the middle of thick forests in the Tirthahalli region of Karnataka. A new structure was designed and built for two of the families while still keeping connection with the old house. Two similar two bedroom houses were planned over two floors with good lighting and views into the greenery. A large portico is inculcated on the ground floor to gather all three families. Some english farmhouse elements have been introduced to the otherwise typical Indian design."
+    },
+    {
+        "id": 11,
+        "name": "Yoga Tute",
+        "location": "Bangalore",
+        "date": "2022-23",
+        "type": "Interiors and Architecture",
+        "images": yogatute,
+        "description": "Yoga tute centre for Yoga, was treated as a sacred place to create a conducive atmosphere for various practices of Yoga with props, meditation and neti practices.\n One room incorporates aerial fabrics, wall ropes and hanging bars. A vibrant room with colours has been designed to induce an energetic mood. All walls were used for rope walls or storage, which led us to a mirror cladded ceiling in unison with the aerial hooks. This gives opportunity for each student to view themselves and correct postures. \nThe other room is designed for more calm practices, hence the concept of neutral, earthy tones to bring in the mood. The spaces have been layouted for different practices to smoothly take place simultaneously. A detox kitchen and seating has been designed to be part of the cool down session after each class. Hence, bringing the whole cycle of warm-up to cool down through the spaces."
     },
     {
         "id": 8,
@@ -100,15 +100,6 @@ export default [
         "description": "A vacation home in Devanahalli, this apartment was designed for a practical, minimalist client. The place has been designed for an airy, light vacation feel. Simple ergonomic  furniture with oak wood finish have been designed. To add some elements of interest, wall paint designs have been incorporated."
     },
     {
-        "id": 11,
-        "name": "Yoga Tute",
-        "location": "Bangalore",
-        "date": "2022-23",
-        "type": "Interiors and Architecture",
-        "images": yogatute,
-        "description": "Yoga tute centre for Yoga, was treated as a sacred place to create a conducive atmosphere for various practices of Yoga with props, meditation and neti practices.\n One room incorporates aerial fabrics, wall ropes and hanging bars. A vibrant room with colours has been designed to induce an energetic mood. All walls were used for rope walls or storage, which led us to a mirror cladded ceiling in unison with the aerial hooks. This gives opportunity for each student to view themselves and correct postures. \nThe other room is designed for more calm practices, hence the concept of neutral, earthy tones to bring in the mood. The spaces have been layouted for different practices to smoothly take place simultaneously. A detox kitchen and seating has been designed to be part of the cool down session after each class. Hence, bringing the whole cycle of warm-up to cool down through the spaces."
-    },
-    {
         "id": 12,
         "name": "Utkarsha Pool",
         "location": "Bangalore",
@@ -125,5 +116,14 @@ export default [
         "type": "Interiors and Architecture",
         "images": [],
         "description": "This Apartment was designed for a young couple with a low budget. The idea was to introduce vibrancy through muted colours. The furniture and spaces are designed to be multifunctional. The design promotes a clutter-free, sustainable life for the minimalist couple."
+    },
+    {
+        "id": 6,
+        "name": "Hrishi Farm House",
+        "location": "Kanakapura, Bangalore",
+        "date": "2022-23",
+        "type": "Interiors and Architecture",
+        "images": [],
+        "description": "The Farm, is a family farmhouse located on Kanakapura road, about thirty minutes from Bangalore. It is designed to be the perfect weekend getaway for the family. The client also wanted to rent it out for huge parties when they are not using it. Hence, the design wrote itself to be three blocks. One common central block with living, dining and kitchen spaces, one block with bedrooms opening up to the pool, for the crowd that will party and one block with luxurious private bedrooms only for the family’s use, tucked away from the noise.\n The site has a slope down towards the west with a beautiful lake view. The three blocks are placed parallel to each other, with courtyards in between. This creates a channel for the wind flow, allows the diffused light in throughout the day and minimises the exposure to the west sun while retaining the opening to the view. One of the courtyards is designed as a party deck with a pool and the other as a more silent, relaxing one. The language and materials of the building were inspired by modernist and minimalist ideologies."
     },
 ]

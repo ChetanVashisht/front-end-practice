@@ -17,16 +17,16 @@ export default function ProjectPage() {
     const renderImages = (image, i) => (<img className={`img ${getClasses(i)}`} src={image.img} key={i} />)
 
     return (
-        <section>
-            <div className='project-description'>
+        <main>
+            <section className='project-description'>
                 <div className='project-d-left'>
                     <h5> {project.type} </h5>
                     <h2> {project.name} </h2>
-                    <h5> {project.date} </h5>
+                    <span> {project.date} </span>
                 </div>
                 <p className='project-d-right'> {project.description} </p>
-            </div>
+            </section>
             <section className='image-grid'>{project.images.map(renderImages)}</section>
-        </section>
+        </main>
     )
 }

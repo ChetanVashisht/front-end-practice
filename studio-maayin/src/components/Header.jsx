@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Header() {
     return (
         <header>
-            <Link className='no-highlight' to="/"> <h1>Studio Maayin</h1> </Link>
+            <Link to="/"> <h1 className='h1-nav'>Studio Maayin</h1> </Link>
         </header>
     )
 }
