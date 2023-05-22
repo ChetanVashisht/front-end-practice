@@ -4,7 +4,7 @@
 }
 
 :root {
-    --max-width: 60em;
+    --max-width: 80em;
 }
 
 * {
@@ -16,6 +16,7 @@
 body {
     margin: 0;
     background: #E3DEDE;
+    color: darkslategray;
 }
 
 img {
@@ -29,6 +30,7 @@ a {
 }
 
 h5 {
+    color: black;
     margin-block: 1em 0;
 }
 
@@ -39,7 +41,6 @@ section {
 
 header {
     background-color: white;
-    color: black;
     width: 100%;
 }
 
@@ -60,6 +61,7 @@ footer {
 }
 
 h1 {
+    color: black;
     margin: 0;
     font-size: 3rem;
     font-family: gangitem, serif;
@@ -82,10 +84,10 @@ h1 {
 
 
 h2 {
+    color: black;
     font-family: gangitem, serif;
     font-style: normal;
     font-size: 2rem;
-    color: black;
     text-align: center;
     text-transform: uppercase;
     margin-block: 0.75em;
@@ -206,6 +208,15 @@ q {
     object-fit: contain;
 }
 
+.disappear {
+    display: inline;
+}
+@media(max-width: 764px) {
+    .disappear {
+        display: none;
+    }
+}
+
 /***********
  *  Projects
  ***********/
@@ -228,6 +239,7 @@ q {
     text-align: center;
     font-size: 1.3rem;
     margin: 0.5em;
+    color: darkslategray;
 }
 
 .project {
@@ -316,15 +328,5 @@ q {
     .tall {
         grid-row: span 1;
         grid-column: span 1;
-    }
-}
-
-
-.disappear {
-    display: inline;
-}
-@media(max-width: 764px) {
-    .disappear {
-        display: none;
     }
 }

@@ -1,13 +1,12 @@
 function generateImportsForFolder()
 {
-	cd $1
-	echo $1
+	cd $1/compressed
 	pwd
-	cp ../import.js .
+	cp ../../import.js .
 	node import.js .
 	rm import.js
 	ls
-	cd ..
+	cd ../..
 }
 
 function convertImages()
@@ -25,7 +24,7 @@ declare -a folders=("Bayars-store" "Usha-Latesh-house" "anna-poorna" "bnr-hills"
 for i in "${folders[@]}"
 do
 	echo "Generating from folder $i"
-	convertImages "$i"
+	#convertImages "$i"
 	generateImportsForFolder "$i"
 done
 

@@ -16,66 +16,36 @@ import _IMG_3996 from './IMG_3996.jpg'
 
 
 const data = [
-    {
-        img: _IMG_3674,
-        name: "IMG_3674", folder: "."
-    },
-    {
-        img: _IMG_3689,
-        name: "IMG_3689", folder: "."
-    },
-    {
-        img: _IMG_3696,
-        name: "IMG_3696", folder: "."
-    },
-    {
-        img: _IMG_3704,
-        name: "IMG_3704", folder: "."
-    },
-    {
-        img: _IMG_3708,
-        name: "IMG_3708", folder: "."
-    },
-    {
-        img: _IMG_3710,
-        name: "IMG_3710", folder: "."
-    },
-    {
-        img: _IMG_3760,
-        name: "IMG_3760", folder: "."
-    },
-    {
-        img: _IMG_3785,
-        name: "IMG_3785", folder: "."
-    },
-    {
-        img: _IMG_3801,
-        name: "IMG_3801", folder: "."
-    },
-    {
-        img: _IMG_3863,
-        name: "IMG_3863", folder: "."
-    },
-    {
-        img: _IMG_3882,
-        name: "IMG_3882", folder: "."
-    },
-    {
-        img: _IMG_3891,
-        name: "IMG_3891", folder: "."
-    },
-    {
-        img: _IMG_3933,
-        name: "IMG_3933", folder: "."
-    },
-    {
-        img: _IMG_3969,
-        name: "IMG_3969", folder: "."
-    },
-    {
-        img: _IMG_3996,
-        name: "IMG_3996", folder: "."
-    },
+{img: _IMG_3674,
+ name: "IMG_3674", folder: "."},
+{img: _IMG_3689,
+ name: "IMG_3689", folder: "."},
+{img: _IMG_3696,
+ name: "IMG_3696", folder: "."},
+{img: _IMG_3704,
+ name: "IMG_3704", folder: "."},
+{img: _IMG_3708,
+ name: "IMG_3708", folder: "."},
+{img: _IMG_3710,
+ name: "IMG_3710", folder: "."},
+{img: _IMG_3760,
+ name: "IMG_3760", folder: "."},
+{img: _IMG_3785,
+ name: "IMG_3785", folder: "."},
+{img: _IMG_3801,
+ name: "IMG_3801", folder: "."},
+{img: _IMG_3863,
+ name: "IMG_3863", folder: "."},
+{img: _IMG_3882,
+ name: "IMG_3882", folder: "."},
+{img: _IMG_3891,
+ name: "IMG_3891", folder: "."},
+{img: _IMG_3933,
+ name: "IMG_3933", folder: "."},
+{img: _IMG_3969,
+ name: "IMG_3969", folder: "."},
+{img: _IMG_3996,
+ name: "IMG_3996", folder: "."},
 
 ]
 export default data;

@@ -1,11 +1,11 @@
-import bnr from './bnr-hills/imgImports'
+import bnr from './bnr-hills/compressed/imgImports'
 import annaPoornaData from './anna-poorna/compressed/imgImports'
-import kaustubha from './kaustubha/imgImports'
-import ravi from './ravinarayan/imgImports'
-import kesuvinFH from './kesuvin-farm-house/imgImports'
-import ushaLatesh from './Usha-Latesh-house/imgImports'
-import bayarStore from './Bayars-store/imgImports'
-import yogatute from './yogatute/imgImports'
+import kaustubha from './kaustubha/compressed/imgImports'
+import ravi from './ravinarayan/compressed/imgImports'
+import kesuvinFH from './kesuvin-farm-house/compressed/imgImports'
+import ushaLatesh from './Usha-Latesh-house/compressed/imgImports'
+import bayarStore from './Bayars-store/compressed/imgImports'
+import yogatute from './yogatute/compressed/imgImports'
 
 
 export default [
