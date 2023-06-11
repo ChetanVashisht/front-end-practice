@@ -1,3 +1,3 @@
 cd $1
 mkdir compressed
-magick mogrify -quality 45 -resize 25% -path ./compressed *.jpg
+magick mogrify -quality 50 -resize 50% -path ./compressed *.jpg

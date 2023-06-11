@@ -37,6 +37,7 @@ h5 {
 section {
     max-width: var(--max-width);
     margin-inline: auto;
+    margin-block: 2em;
 }
 
 header {
@@ -141,9 +142,19 @@ h2 {
 }
 
 .para {
+    text-align: center;
     background-color: white;
-    padding: 1.5em;
+    padding: 3em;
     border-radius: 5px;
+    margin-inline: auto;
+    columns: 2;
+}
+
+@media(max-width: 764px) {
+    .para {
+        padding: 1em;
+        columns: 1;
+    }
 }
 
 .horizontal-block {

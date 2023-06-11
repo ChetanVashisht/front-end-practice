@@ -1,9 +1,11 @@
 export default function AboutUs() {
     return (
         <section>
-            <h2> About Us</h2>
-            <p className="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
+            <div className="para">
+                <h1>Studio Maayin</h1>
+                <p>At Studio Maayin we believe in a design process that deeply engages in the client lifestyle and requirements. We tastefully create cost effective and utilitarian spaces. </p>
+                <p>We are a firm based out of Bangalore and work collaboratively all around India.</p>
+            </div>
         </section>
     )
 }
