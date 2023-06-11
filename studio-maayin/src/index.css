@@ -147,7 +147,6 @@ h2 {
     padding: 3em;
     border-radius: 5px;
     margin-inline: auto;
-    columns: 2;
 }
 
 @media(max-width: 764px) {
