@@ -16,8 +16,9 @@ export default function ProjectPage() {
         }
     }
     const setClassName = (image, i) => (event) => {
-        const ref = refs[i];
-        const {naturalHeight: height, naturalWidth: width} = ref.current;
+        const ref = refs[i]
+        const {naturalHeight: height, naturalWidth: width} = ref.current
+        console.log(height, width)
         const determineClass = (height, width) => {
             switch(true) {
                 case ((height - width) > 200): {return 'tall'}
