@@ -2,29 +2,36 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import projects from '../assets/project-data'
 import * as basicLightbox from 'basiclightbox'
-import 'basicLightbox/dist/basicLightbox.min.css';
+import * as basicSlider from './basic_slider'
+import 'basicLightbox/dist/basicLightbox.min.css'
+import 'basicSlider/dist/basicSlider.min.css'
+import 'basicSlider/dist/themes/default.min.css'
 
 export default function ProjectPage() {
     const { id } = useParams()
-    /* const [imageIndex, setImageIndex] = useState(null) */
+    const [lightBoxRef, setLightBoxRef] = useState();
     const project = projects.find(project => project.id == id)
     const refs = project.images.map(_ => useRef(null))
-    const getClasses = (i) => {
-        switch (i % 10) {
-            case 0: return "wide"
-            case 3: return "tall"
-            case 8: return "wide"
-            case 9: return "tall"
-            default: return ""
-        }
+    const getSlider = (i) => {
+        const elem = document.createElement('div')
+        basicSlider.create(elem, refs.map(ref => `<img src=${ref.current.src} class='slider-images' />`), {index: i})
+        return elem
     }
-    const displayImage = (image, i) => () => {
+    const displayImage = (_, i) => () => {
         const ref = refs[i]
         console.log(ref.current)
-        const img = `<img src=${ref.current.src} width="2000" height="2000"/>`
-        basicLightbox.create(img).show()
+        const elem = getSlider(i)
+        const instance = basicLightbox.create(elem)
+        setLightBoxRef(() => instance)
+        instance.show()
     }
-    const setClassName = (image, i) => (event) => {
+    useEffect(() => {
+        const listener = () => {}
+        window.addEventListener('keypress', listener);
+        window.removeEventListener('keypress', listener)
+    }, [lightBoxRef])
+
+    const setClassName = (_, i) => (__) => {
         const ref = refs[i]
         const {naturalHeight: height, naturalWidth: width} = ref.current
         const determineClass = (height, width) => {
@@ -37,14 +44,6 @@ export default function ProjectPage() {
         ref.current.className = `img ${determineClass(height, width)}`;
     }
     const renderImages = (image, i) => (<img ref={refs[i]} className={`img`} src={image.img} key={i} onLoad={setClassName(image, i)} onClick={displayImage(image, i)} />)
-    /* const addImageSwiper = () => {
-     *     const sides = (event) => {
-     *         displayImage()
-     *     }
-     *     window.addEventListener('keypress', sides)
-     * }
-     * useEffect(addImageSwiper, [imageIndex])
-     */
     return (
         <main>
             <section className='project-description'>
