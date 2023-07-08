@@ -1,35 +1,25 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import projects from '../assets/project-data'
-import * as basicLightbox from 'basiclightbox'
-import * as basicSlider from './basic_slider'
-import 'basicLightbox/dist/basicLightbox.min.css'
-import 'basicSlider/dist/basicSlider.min.css'
-import 'basicSlider/dist/themes/default.min.css'
+import LightBox from './LightBox'
+import Slider from './Slider'
 
 export default function ProjectPage() {
     const { id } = useParams()
-    const [lightBoxRef, setLightBoxRef] = useState();
     const project = projects.find(project => project.id == id)
     const refs = project.images.map(_ => useRef(null))
-    const getSlider = (i) => {
-        const elem = document.createElement('div')
-        basicSlider.create(elem, refs.map(ref => `<img src=${ref.current.src} class='slider-images' />`), {index: i})
-        return elem
-    }
-    const displayImage = (_, i) => () => {
-        const ref = refs[i]
-        console.log(ref.current)
-        const elem = getSlider(i)
-        const instance = basicLightbox.create(elem)
-        setLightBoxRef(() => instance)
-        instance.show()
-    }
+    let slider;
+    let lightBox;
     useEffect(() => {
-        const listener = () => {}
-        window.addEventListener('keypress', listener);
-        window.removeEventListener('keypress', listener)
-    }, [lightBoxRef])
+        const onClick = () => lightBox.close()
+        slider = Slider(refs, onClick);
+        lightBox = new LightBox(slider.element())
+    }, []);
+
+    const displayImage = (_, i) => () => {
+        slider.goto(i)
+        lightBox.show()
+    }
 
     const setClassName = (_, i) => (__) => {
         const ref = refs[i]
@@ -43,7 +33,13 @@ export default function ProjectPage() {
         }
         ref.current.className = `img ${determineClass(height, width)}`;
     }
-    const renderImages = (image, i) => (<img ref={refs[i]} className={`img`} src={image.img} key={i} onLoad={setClassName(image, i)} onClick={displayImage(image, i)} />)
+    const renderImages = (image, i) => (<img ref={refs[i]}
+                                             className={`img`}
+                                             src={image.img}
+                                             key={i}
+                                             onLoad={setClassName(image, i)}
+                                             onClick={displayImage(image, i)} />)
+
     return (
         <main>
             <section className='project-description'>

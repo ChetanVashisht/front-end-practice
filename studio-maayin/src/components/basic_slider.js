@@ -1,4 +1,22 @@
-import counter from 'count-between'
+const counter = function(min, max, initial) {
+
+    const length = max - min + 1
+
+    let index = initial - min
+
+    return function(modifier) {
+
+	modifier = modifier || 0
+	index = (index + modifier) % length
+
+	if (index >= 0) index = 0 + index
+	if (index < 0) index = length + index
+
+	return min + index
+
+    }
+
+}
 
 const ARROW_LEFT = 'left'
 const ARROW_RIGHT = 'right'
@@ -141,12 +159,13 @@ const renderSlides = function(slideElems = []) {
 
 }
 
-const renderSlide = function(html = '') {
+const renderSlide = function(html = '', onClick) {
 
     const elem = document.createElement('div')
 
     // Add default class
     elem.classList.add('basicSlider__slide')
+    if (onClick){ elem.onclick = onClick}
 
     // Add slide content
     elem.innerHTML = html
@@ -173,7 +192,7 @@ const init = function(elem, slides, instance, opts) {
     const refs = {}
 
     // Render all elements
-    refs.slideElems = slides.map(renderSlide)
+    refs.slideElems = slides.map(slide => renderSlide(slide, opts.onClick))
     refs.dotElems = slides.map((_, i) => renderDot(instance.goto.bind(null, i)))
     refs.dotsElem = renderDots(refs.dotElems)
     refs.slidesElem = renderSlides(refs.slideElems)

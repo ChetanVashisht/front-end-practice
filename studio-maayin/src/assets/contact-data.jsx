@@ -4,11 +4,12 @@ import instagram from "./instagram.svg"
 import email from "./email.svg"
 
 export default [
+    /* {
+     *     icon: address,
+     *     href: "https://goo.gl/maps/k4AMt7LvyKfZosm17",
+     *     data: "Bangalore"
+     * }, */
     {
-        icon: address,
-        href: "https://goo.gl/maps/k4AMt7LvyKfZosm17",
-        data: "Bangalore"
-    }, {
         icon: email,
         href: "mailto:studiomaayin@gmail.com",
         data: "studiomaayin@gmail.com"
