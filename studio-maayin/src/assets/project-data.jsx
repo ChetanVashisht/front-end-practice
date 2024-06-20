@@ -24,14 +24,22 @@ export default [
         "description": "A forty year old house in Jayanagar, renovated with an additional floor. The architecture has been tailored to the existing load bearing structure while keeping in mind  the evolving cultural context. The space plays multiple roles, from being a simple one bedroom house to being an entertainment hall. While the wife happens to be a former table tennis player and the husband, a movie buff, the space becomes a shapeshifter from a table tennis coaching centre with apt flooring to a dark movie theatre with perfect vision distance and acoustics."
     },
     {
-        id: 2,
-        "name": "Hrishkesh Farmhouse",
-        "location": "Kanakapura, Bangalore",
-        "date": "2022-present",
-        "type": "Architecture and Interiors",
-        "images": hrishi,
-        "picture": "2",
-        "description": "The Farm, is a family farmhouse located on Kanakapura road, about thirty minutes from Bangalore. It is designed to be the perfect weekend getaway for the family. The client also wanted to rent it out for huge parties when they are not using it. Hence, the design wrote itself to be three blocks. One common central block with living, dining and kitchen spaces, one block with bedrooms opening up to the pool, for the crowd that will party and one block with luxurious private bedrooms only for the family’s use, tucked away from the noise.\n The site has a slope down towards the west with a beautiful lake view. The three blocks are placed parallel to each other, with courtyards in between. This creates a channel for the wind flow, allows the diffused light in throughout the day and minimises the exposure to the west sun while retaining the opening to the view. One of the courtyards is designed as a party deck with a pool and the other as a more silent, relaxing one. The language and materials of the building were inspired by modernist and minimalist ideologies."
+        "id": 11,
+        "name": "Utkarsha Pool",
+        "location": "Bangalore",
+        "date": "2022-23",
+        "type": "Landscape and Architecture",
+        "images": Utkarsha,
+        "description": "This landscape project transformed the backyard of a villa into a swimming pool with a relaxing party deck and minimal softscape. The client, who is a swimming enthusiast, uses the lap-pool on a daily basis. To contrast the rigidity of the lap-pool, a relaxing pool seating is carved out of the deck. This creates a flow from the pool to the deck and into the house. While the space is functional for a daily swim and tea party, it doubles up into a perfect spot for entertaining a party."
+    },
+    {
+        "id": 12,
+        "name": "Rajashree Home",
+        "location": "KGF",
+        "date": "2023-24",
+        "type": "Interiors",
+        "images": KGF,
+        "description": "A home renovation in KGF."
     },
     {
         "id": 3,
@@ -114,21 +122,13 @@ export default [
         "description": "Bayar’s coffee, a bangalore based coffee company required a face lift for their factory interiors. The space was upgraded with minimal changes in a cost effective way. Wooden texture and some colours were added to the all white commercial style. Accent walls were designed to display the trophies, certificates and other souvenirs."
     },
     {
-        "id": 11,
-        "name": "Utkarsha Pool",
-        "location": "Bangalore",
-        "date": "2022-23",
-        "type": "Landscape and Architecture",
-        "images": Utkarsha,
-        "description": "This landscape project transformed the backyard of a villa into a swimming pool with a relaxing party deck and minimal softscape. The client, who is a swimming enthusiast, uses the lap-pool on a daily basis. To contrast the rigidity of the lap-pool, a relaxing pool seating is carved out of the deck. This creates a flow from the pool to the deck and into the house. While the space is functional for a daily swim and tea party, it doubles up into a perfect spot for entertaining a party."
-    },
-    {
-        "id": 12,
-        "name": "Rajashree Home",
-        "location": "KGF",
-        "date": "2023-24",
-        "type": "Interiors",
-        "images": KGF,
-        "description": "A home renovation in KGF."
+        id: 2,
+        "name": "Hrishkesh Farmhouse",
+        "location": "Kanakapura, Bangalore",
+        "date": "2022-present",
+        "type": "Architecture and Interiors",
+        "images": hrishi,
+        "picture": "2",
+        "description": "The Farm, is a family farmhouse located on Kanakapura road, about thirty minutes from Bangalore. It is designed to be the perfect weekend getaway for the family. The client also wanted to rent it out for huge parties when they are not using it. Hence, the design wrote itself to be three blocks. One common central block with living, dining and kitchen spaces, one block with bedrooms opening up to the pool, for the crowd that will party and one block with luxurious private bedrooms only for the family’s use, tucked away from the noise.\n The site has a slope down towards the west with a beautiful lake view. The three blocks are placed parallel to each other, with courtyards in between. This creates a channel for the wind flow, allows the diffused light in throughout the day and minimises the exposure to the west sun while retaining the opening to the view. One of the courtyards is designed as a party deck with a pool and the other as a more silent, relaxing one. The language and materials of the building were inspired by modernist and minimalist ideologies."
     },
 ]
