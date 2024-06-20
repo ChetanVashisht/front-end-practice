@@ -1,9 +1,15 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import projects from '../assets/project-data'
 import LightBox from './LightBox'
 import Slider from './Slider'
 
+/**
+   useState for lightbox and slider is not working due to passed down
+   onClick function to close the lightbox.
+
+   I'm forced to use the standard workaround of using global variables.
+ **/
 export default function ProjectPage() {
     const { id } = useParams()
     const project = projects.find(project => project.id == id)
@@ -12,8 +18,8 @@ export default function ProjectPage() {
     let lightBox;
     useEffect(() => {
         const onClick = () => lightBox.close()
-        slider = Slider(refs, onClick);
-        lightBox = new LightBox(slider.element())
+        slider = Slider(refs, onClick)
+        lightBox = LightBox(slider.element())
     }, []);
 
     const displayImage = (_, i) => () => {

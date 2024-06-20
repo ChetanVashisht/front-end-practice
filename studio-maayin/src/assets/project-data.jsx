@@ -8,6 +8,8 @@ import bayarStore from './Bayars-store/compressed/imgImports'
 import yogatute from './yogatute/compressed/imgImports'
 import hrishi from './hrishi/compressed/imgImports'
 import bayarsFactory from './bayars-factory/compressed/imgImports'
+import Utkarsha from './Utkarsha/compressed/imgImports'
+import KGF from './KGF/compressed/imgImports'
 
 
 export default [
@@ -113,29 +115,20 @@ export default [
     },
     {
         "id": 11,
-        "name": "Banyan",
-        "location": "Bangalore",
-        "date": "2023-present",
-        "type": "Interiors",
-        "images": [],
-        "description": "A vacation home in Devanahalli, this apartment was designed for a practical, minimalist client. The place has been designed for an airy, light vacation feel. Simple ergonomic  furniture with oak wood finish have been designed. To add some elements of interest, wall paint designs have been incorporated."
-    },
-    {
-        "id": 12,
         "name": "Utkarsha Pool",
         "location": "Bangalore",
         "date": "2022-23",
         "type": "Landscape and Architecture",
-        "images": [],
+        "images": Utkarsha,
         "description": "This landscape project transformed the backyard of a villa into a swimming pool with a relaxing party deck and minimal softscape. The client, who is a swimming enthusiast, uses the lap-pool on a daily basis. To contrast the rigidity of the lap-pool, a relaxing pool seating is carved out of the deck. This creates a flow from the pool to the deck and into the house. While the space is functional for a daily swim and tea party, it doubles up into a perfect spot for entertaining a party."
     },
     {
-        "id": 13,
-        "name": "Akashada Mane",
-        "location": "Bangalore",
-        "date": "2021",
+        "id": 12,
+        "name": "Rajashree Home",
+        "location": "KGF",
+        "date": "2023-24",
         "type": "Interiors",
-        "images": [],
-        "description": "This Apartment was designed for a young couple with a low budget. The idea was to introduce vibrancy through muted colours. The furniture and spaces are designed to be multifunctional. The design promotes a clutter-free, sustainable life for the minimalist couple."
+        "images": KGF,
+        "description": "A home renovation in KGF."
     },
 ]

@@ -353,6 +353,10 @@ q {
     overflow: hidden;
 }
 
+.basicLightbox {
+    cursor: url("./assets/close.svg") 16 16, crosshair;
+}
+
 /**
    Slider
  */
@@ -368,13 +372,20 @@ q {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 0 1 auto;
+    width: 100%;
+    height: 100%;
 }
 
 .basicSlider__slides {
+    position: relative;
+    display: flex;
+    height: 100%;
+    transition: transform .4s cubic-bezier(.51,.92,.24,1);
+    will-change: transform;
     margin: auto;
     align-items: center;
     cursor: url("./assets/close.svg") 16 16, crosshair;
-    /* cursor: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 512 512'%3e%3cg transform='rotate(45 256 256)'%3e%3crect id='r' x='16' y='216' width='480' height='80' rx='14'/%3e%3cuse href='%23r' transform='rotate(90 256 256)'/%3e%3c/g%3e%3c/svg%3e") 16 16, pointer; */
 }
 
 .basicSlider__arrow {
@@ -387,10 +398,14 @@ q {
     height: 50%;
     top: 25%;
     width: 50vw;
-    cursor: grab;
+}
+.basicSlider__arrow--left {
+    left: 0;
+    cursor: url(./assets/left-arrow.svg) 16 16, grab;
 }
 .basicSlider__arrow--right {
     right: 0;
+    cursor: url(./assets/right-arrow.svg) 16 16, grab;
 }
 .basicSlider__arrow--right:after {
     position: absolute;
@@ -406,4 +421,29 @@ q {
 }
 .basicSlider__arrow:after {
     font-size: 1em;
+}
+
+.basicSlider__dot {
+    margin: 0.2em;
+    background: white;
+    border-radius: 100%;
+    height: 0.7em;
+    width: 0.7em;
+    transition: background-color .4s cubic-bezier(.51,.92,.24,1);
+    border: none;
+}
+
+.basicSlider__dots {
+    position: absolute;
+    bottom: 0;
+    margin-top: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.basicSlider__dot.active, .basicSlider__dot:hover {
+    background: darkslategray;
+    transition: background-color .4s cubic-bezier(.51,.92,.24,1);
 }

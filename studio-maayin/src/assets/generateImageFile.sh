@@ -30,7 +30,7 @@ function convertImages()
 
 #declare -a folders=("Bayars-store" "Usha-Latesh-house" "anna-poorna" "bnr-hills" "kaustubha" "kesuvin-farm-house" "ravinarayan" "yogatute")
 #
-declare -a folders=("bayars-factory" "hrishi")
+declare -a folders=("Utkarsha" "KGF")
 
 for i in "${folders[@]}"
 do
@@ -38,4 +38,3 @@ do
 	convertImages "$i"
 	generateImportsForFolder "$i"
 done
-

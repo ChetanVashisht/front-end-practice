@@ -5,14 +5,14 @@ import _7 from './7.jpg'
 
 
 const data = [
-    {img: _2,
-     name: "2", folder: "."},
-    {img: _12RENDER,
-     name: "12RENDER", folder: "."},
-    {img: _3,
-     name: "3", folder: "."},
-    {img: _7,
-     name: "7", folder: "."},
+{img: _12RENDER,
+ name: "12RENDER", folder: "."},
+{img: _2,
+ name: "2", folder: "."},
+{img: _3,
+ name: "3", folder: "."},
+{img: _7,
+ name: "7", folder: "."},
 
 ]
 export default data;
